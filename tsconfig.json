@@ -1,0 +1,8 @@
+{
+  "include": ["src/main/node/typescript/**/*.ts"],
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "skipLibCheck": true,
+  }
+}

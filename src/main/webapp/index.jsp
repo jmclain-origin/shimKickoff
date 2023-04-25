@@ -11,11 +11,34 @@
     <title>Shim kickoff</title>
 </head>
 <body>
-<main>
-  <h1>Shim kickoff</h1>
-  <h2>Welcome to Shim kickoff</h2>
-  <p>This is a sample application to demonstrate how to use the Shim framework.</p>
-</main>
+<%-- top of page is static --%>
+<nav>
+    navigation element
+</nav>
+<header>
+    asu logo/ label
+</header>
+<div id="hero">
+    bg img
+    <div id="hero_content">
 
+    </div>
+</div>
+<%-- end top of page --%>
+<%-- center content start, side element static, form changes --%>
+<main>
+<aside>
+    side element, mobile view goes under form
+</aside>
+    <div id="main_content">
+        <form id="validate-email"></form>
+        <form id="radio-program"></form>
+    </div>
+</main>
+<%--  end center content --%>
+<%-- start bottom of page footer ele --%>
+<footer>
+
+</footer>
 </body>
 </html>
