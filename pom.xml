@@ -35,6 +35,34 @@
         <version>3.0.0</version>
         <executions>
           <execution>
+            <id>remove-old-css</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>rm</executable>
+              <arguments>
+                <argument>-R</argument>
+                <argument>src/main/webapp/public/css</argument>
+              </arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>remove-old-js</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>rm</executable>
+              <arguments>
+                <argument>-R</argument>
+                <argument>src/main/webapp/public/js</argument>
+              </arguments>
+            </configuration>
+          </execution>
+          <execution>
           <id>build-css-js</id>
           <phase>prepare-package</phase>
             <goals>

@@ -36,8 +36,8 @@ const webpackConfig = (): Configuration => {
             }),
             new CopyWebpackPlugin({
                 patterns: [
-                { from: path.resolve('dist/css'), to: path.resolve('src/main/webapp/static/css') },
-                    { from: path.resolve('dist/js'), to: path.resolve('src/main/webapp/static/js') },
+                { from: path.resolve('dist/css'), to: path.resolve('src/main/webapp/public/css') },
+                    { from: path.resolve('dist/js'), to: path.resolve('src/main/webapp/public/js') },
                 ] })
         ]
      }

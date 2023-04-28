@@ -20,5 +20,9 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.ts --mode production"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.2",
+    "jquery": "^3.6.4"
   }
 }

@@ -6,13 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <jsp:include page="partials/head.jsp" />
+    <link rel="stylesheet" href="./public/css/style.css">
+    <script src="public/js/main.js"></script>
     <title>Undergrad Admissions</title>
 </head>
 <body>
-<nav id="nav-top" class="nav">
+<nav id="nav-top" class="nav" aria-label="navigation links">
       <span class="nav__link">
         <a href="https://www.asu.edu/"> ASU Home </a>
       </span>
@@ -29,18 +31,18 @@
       </span>
     <span class="nav__link vert">
         <img
-                src="/static/image/magnifyingGlassFA.svg"
+                src="./public/image/magnifyingGlassFA.svg"
                 height="12"
                 weight="12"
-                alt="maganifiy"
+                alt="image of a magnifying glass"
         />
       </span>
 </nav>
 
 <!-- BANNER -->
-<header class="banner">
+<header class="banner" aria-label="banner">
     <img
-            src="/assets/ASU_Logo_Stacked_Web_1.png"
+            src="./public/image/ASU_Logo_Stacked_Web_1.png"
             class="banner__logo"
             alt="ASU Logo"
             width="93"
@@ -51,7 +53,7 @@
 
 <!-- HERO CTA -->
 <div class="hero__container">
-    <img class="hero__image" src="./static/image/asu-sign@2x.png" alt="asu sign" />
+    <img class="hero__image" src="./public/image/asu-sign@2x.png" alt="image of palm tree leafs and sign structure with ASU logo" />
 
     <div class="hero__content">
         <h2>Apply to ASU</h2>
@@ -63,7 +65,7 @@
 <!--  SIDE PANEL  -->
 <aside class="side-panel">
     <div class="card">
-        <img class="card__icon" src="./static/image/clock.svg" />
+        <img class="card__icon" src="./public/image/clock.svg" alt="image of a credit code" />
         <h5 class="card__label">Time to apply</h5>
         <h5 class="carc_glob">
             Allow about <span class="highlight"> 30 minutes </span> to complete
@@ -71,7 +73,7 @@
         </h5>
     </div>
     <div class="card">
-        <img clss src="./static/image/credit%20card.svg" />
+        <img clss src="./public/image/credit%20card.svg" alt="image of a credit card" />
         <h5 class="card__label">Application fee</h5>
         <ul class="card__list">
             <li>
@@ -93,7 +95,7 @@
         </ul>
     </div>
     <div class="card">
-        <img class="card__icon" src="./static/image/school.svg" />
+        <img class="card__icon" src="./public/image/school.svg" alt="image of a school" />
         <h5 class="card__label">School info</h5>
         <h5 class="carc_glob">
             It will be handy to have your high school and previous college
@@ -102,7 +104,7 @@
     </div>
 
     <div class="card">
-        <img class="card__icon" src="./static/image/question.svg" />
+        <img class="card__icon" src="./public/image/question.svg" alt="image of a question mark" />
         <h5 class="card__label">Help</h5>
         <ul class="card__list">
             <li>
@@ -125,9 +127,9 @@
     <hr class="divide" />
     <label for="email">What's your email address?</label>
 
-    <form action="/api/email-vaildate" method="post">
-        <input id="email" type="email" name="email" class="email-vaildate__input" />
-        <button type="button" class="email-vaildate__button"><img src="/assets/Icon - arrow-right-solid.svg" alt="" /></button>
+    <form action="/api/email-validate" method="post">
+        <input id="email" type="email" name="email" class="email-validate__input" />
+        <button type="button" class="email-validate__button"><img src="./public/image/Icon%20-%20arrow-right-solid.svg" alt="image of a arrow pointing right" /></button>
         <!-- if -->
         <small
         >If you've applied before, please enter the email you've used on
@@ -155,7 +157,7 @@
     </form> -->
 </main>
 <footer class="footer">
-    <nav class="nave-lo">
+    <nav class="additional-links" aria-label="additional links">
         <ul>
             <li>Map and Locations</li>
             <li>Jobs</li>
@@ -164,12 +166,12 @@
             <li>My ASU</li>
         </ul>
     </nav>
-    <nav class="legal-links">
+    <nav class="legal-links" aria-label="legal links">
         <span>Copyright and Trademark</span>
         <span>Accessibility</span>
         <span>Privacy</span>
         <span>Terms of Use</span>
-        <span>Emergent</span>
+        <span>Emergency</span>
     </nav>
 </footer>
 

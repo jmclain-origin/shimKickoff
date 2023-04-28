@@ -1,9 +1,11 @@
 @import 'variables';
 
-* { box-sizing: border-box; }
+// overrides (declared before import else won't work)
+$primary: $gold;
+@import 'bootstrap/scss/bootstrap';
 
-html {
-}
+// site specific
+* { box-sizing: border-box; }
 
 html, body {
   background: $bg-white;
@@ -13,12 +15,58 @@ html, body {
   padding: 0;
 }
 
-nav {
-  display: flex;
-  justify-items: right;
-  align-items: center;
-
-  span {
-    font-size: 2rem;
-  }
+// typography utility classes
+.h1-large-desktop-56px- {
+  font-family: $font-family-arial;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-56;
+  line-height: $line-spacing-67;
+  letter-spacing: $character-spacing--1-96;
+  color: $text-primary;
+}
+.text-large-18px- {
+  font-family: $font-family-arial;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-18;
+  line-height: $line-spacing-25;
+  letter-spacing: $character-spacing-0;
+  color: $text-primary;
+}
+.h3-large-desktop-24px- {
+  font-family: $font-family-arial;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-24;
+  line-height: $line-spacing-29;
+  letter-spacing: $character-spacing--0-84;
+  color: $text-primary;
+}
+.h1-medium-desktop-48px- {
+  font-family: $font-family-arial;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-48;
+  line-height: $line-spacing-58;
+  letter-spacing: $character-spacing--1-68;
+  color: $text-primary;
+}
+.text-medium-16px- {
+  font-family: $font-family-arial;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-16;
+  line-height: $line-spacing-22;
+  letter-spacing: $character-spacing-0;
+  color: $text-primary;
+}
+.text-small-14px- {
+  font-family: $font-family-arial;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-14;
+  line-height: $line-spacing-20;
+  letter-spacing: $character-spacing-0;
+  color: $text-primary;
 }
