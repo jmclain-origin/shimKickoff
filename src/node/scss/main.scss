@@ -3,12 +3,22 @@
 * { box-sizing: border-box; }
 
 html {
-  background: $bg-white;
 }
 
 html, body {
+  background: $bg-white;
   min-height: 100vh;
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-items: right;
+  align-items: center;
+
+  span {
+    font-size: 2rem;
+  }
 }
