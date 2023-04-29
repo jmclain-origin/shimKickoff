@@ -4,18 +4,50 @@
 $primary: $gold;
 @import 'bootstrap/scss/bootstrap';
 
-// site specific
-* { box-sizing: border-box; }
-
+// tags
 html, body {
   background: $bg-white;
   min-height: 100vh;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  font-family: $font-family-arial !important;
 }
 
-// typography utility classes
+// misc classes
+.bg-gray {
+  background-color: $bg-gray;
+}
+
+.banner-padding {
+  padding: ($spacer * 1.5) ($spacer * 2);
+}
+.hero {
+  min-height: 256px;
+  padding: 120px 36px 33px;
+  &__heading {
+    font-size: ($spacer * 2.5);
+    font-weight: $font-weight-bold;
+    line-height: 40px;
+    letter-spacing: -1.4px;
+    color: $white;
+  }
+  &__lead {
+    font-size: $font-size-18;
+    font-weight: $font-weight-bold;
+    font-family: $font-family-arial;
+    line-height: $line-spacing-25;
+    letter-spacing: -0.27px;
+    color: $gold;
+    margin-top: 15px;
+  }
+}
+
+// typography classes
+.text-highlight-gold {
+  background: $gold;
+}
+.text-highlight-dark {
+  background-color: $text-primary;
+}
 .h1-large-desktop-56px- {
   font-family: $font-family-arial;
   font-style: $font-style-normal;

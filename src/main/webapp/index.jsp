@@ -12,56 +12,98 @@
     <link rel="stylesheet" href="./public/css/style.css">
     <script src="public/js/main.js"></script>
     <title>Undergrad Admissions</title>
+    <style>
+        .hero {
+            background: url("./public/image/asu-sign@2x.png") no-repeat center center;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-<nav id="nav-top" class="nav" aria-label="navigation links">
-      <span class="nav__link">
-        <a href="https://www.asu.edu/"> ASU Home </a>
-      </span>
-    <span class="nav__link">
-        <a href="https://my.asu.edu/"> My ASU </a>
-      </span>
-    <span class="nav__link">
-        <a href="https://www.asu.edu/academics/colleges-schools">
-          Colleges and Schools
-        </a>
-      </span>
-    <span class="nav__link">
-        <a href="https://weblogin.asu.edu/cas/login">Sign In</a>
-      </span>
-    <span class="nav__link vert">
+<nav id="nav-top" class="bg-gray d-none d-sm-block" aria-label="navigation links">
+    <a href="https://www.asu.edu/">ASU Home</a>
+    <a href="https://my.asu.edu/">My ASU</a>
+    <a href="https://www.asu.edu/academics/colleges-schools">
+      Colleges and Schools
+    </a>
+    <a href="https://weblogin.asu.edu/cas/login">Sign In</a>
+    <span>
         <img
-                src="./public/image/magnifyingGlassFA.svg"
-                height="12"
-                weight="12"
-                alt="image of a magnifying glass"
+            src="./public/image/magnifyingGlassFA.svg"
+            height="12"
+            weight="12"
+            alt="image of a magnifying glass"
         />
-      </span>
+    </span>
 </nav>
-
-<!-- BANNER -->
-<header class="banner" aria-label="banner">
+<header class="banner-padding" aria-label="banner">
     <img
-            src="./public/image/ASU_Logo_Stacked_Web_1.png"
-            class="banner__logo"
-            alt="ASU Logo"
-            width="93"
-            height="72"
+        src="./public/image/ASU_Logo_Stacked_Web_1.png"
+        class="banner__logo d-none d-sm-block"
+        alt="ASU Logo"
+        width="93"
+        height="72"
     />
-    <h1 class="banner__heading">Admission</h1>
+    <img
+        src="./public/image/asu_horiz@2x.png"
+        class="banner__logo d-block d-sm-none"
+        alt="ASU Logo"
+        width="177.78"
+        height="32"
+    />
+    <h1 class="text-medium-16px- mt-1">Admission</h1>
 </header>
 
 <!-- HERO CTA -->
-<div class="hero__container">
-    <img class="hero__image" src="./public/image/asu-sign@2x.png" alt="image of palm tree leafs and sign structure with ASU logo" />
-
+<div class="hero">
+<%--    <img class="hero__bg-image" src="./public/image/asu-sign@2x.png" alt="image of palm tree leafs and sign structure with ASU logo" />--%>
     <div class="hero__content">
-        <h2>Apply to ASU</h2>
-        <h3>Your ASU undergraduate journey starts with this application</h3>
+        <h2 class="hero__heading">
+            <span class="text-highlight-dark">Apply to ASU</span>
+        </h2>
+        <h3 class="hero__lead">
+            <span class="text-highlight-dark">Your ASU undergraduate journey starts with this application</span>
+        </h3>
     </div>
 </div>
 <!-- END TOP - MID PAGe -->
+<main class="main">
+    <h4 class="main__heading">We're beta testing a new application.</h4>
+    <h4 class="main__sub-heading">
+        Let us assist you in getting where you need to go!
+    </h4>
+    <hr class="divide" />
+    <label for="email">What's your email address?</label>
 
+    <form action="/api/email-validate" method="post">
+        <input id="email" type="email" name="email" class="email-validate__input" />
+        <button type="button" class="email-validate__button"><img src="./public/image/Icon%20-%20arrow-right-solid.svg" alt="image of a arrow pointing right" /></button>
+        <!-- if -->
+        <small
+        >If you've applied before, please enter the email you've used on
+            previous applications.</small
+        >
+        <!-- else -->
+        <!-- <hr /> -->
+    </form>
+
+    <!-- <form action="/api/radio-program" method="post">
+      <h4>Which type of program are you applying for?</h4>
+      <div class="group-radio">
+        <input type="radio" name="radio-program" class="radio-input" />
+        <label for="radio-program">A fully online degree program</label>
+      </div>
+      <div class="group-radio">
+        <input type="radio" name="radio-program" class="radio-input" />
+        <label for="radio-program">An on campus, ASU Sync, ASU Local, non-degree or international student visa program</label>
+      </div>
+      <div class="group-radio">
+        <input type="radio" name="radio-program" class="radio-input" />
+        <label for="radio-program">I'm not sure</label>
+      </div>
+      <button type="button" class="radio-submit">continue</button>
+    </form> -->
+</main>
 <!--  SIDE PANEL  -->
 <aside class="side-panel">
     <div class="card">
@@ -119,43 +161,6 @@
     </div>
 </aside>
 
-<main class="main">
-    <h4 class="main__heading">We're beta testing a new application.</h4>
-    <h4 class="main__sub-heading">
-        Let us assist you in getting where you need to go!
-    </h4>
-    <hr class="divide" />
-    <label for="email">What's your email address?</label>
-
-    <form action="/api/email-validate" method="post">
-        <input id="email" type="email" name="email" class="email-validate__input" />
-        <button type="button" class="email-validate__button"><img src="./public/image/Icon%20-%20arrow-right-solid.svg" alt="image of a arrow pointing right" /></button>
-        <!-- if -->
-        <small
-        >If you've applied before, please enter the email you've used on
-            previous applications.</small
-        >
-        <!-- else -->
-        <!-- <hr /> -->
-    </form>
-
-    <!-- <form action="/api/radio-program" method="post">
-      <h4>Which type of program are you applying for?</h4>
-      <div class="group-radio">
-        <input type="radio" name="radio-program" class="radio-input" />
-        <label for="radio-program">A fully online degree program</label>
-      </div>
-      <div class="group-radio">
-        <input type="radio" name="radio-program" class="radio-input" />
-        <label for="radio-program">An on campus, ASU Sync, ASU Local, non-degree or international student visa program</label>
-      </div>
-      <div class="group-radio">
-        <input type="radio" name="radio-program" class="radio-input" />
-        <label for="radio-program">I'm not sure</label>
-      </div>
-      <button type="button" class="radio-submit">continue</button>
-    </form> -->
-</main>
 <footer class="footer">
     <nav class="additional-links" aria-label="additional links">
         <ul>
