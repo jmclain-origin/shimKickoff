@@ -28,28 +28,5 @@
   </dependencies>
   <build>
     <finalName>shimKickoff</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-          <execution>
-          <id>build-css-js</id>
-          <phase>prepare-package</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>npm</executable>
-              <arguments>
-                <argument>run</argument>
-                <argument>build</argument>
-              </arguments>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
   </build>
 </project>

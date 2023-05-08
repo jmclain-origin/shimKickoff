@@ -1,177 +1,327 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: joshmclain
-  Date: 4/25/23
-  Time: 9:21 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <jsp:include page="partials/head.jsp" />
-    <title>Undergrad Admissions</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UnderGraduateAdmissions</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script defer src="./dist/main.js"></script>
 </head>
 <body>
-<nav id="nav-top" class="nav">
-      <span class="nav__link">
-        <a href="https://www.asu.edu/"> ASU Home </a>
-      </span>
-    <span class="nav__link">
-        <a href="https://my.asu.edu/"> My ASU </a>
-      </span>
-    <span class="nav__link">
-        <a href="https://www.asu.edu/academics/colleges-schools">
-          Colleges and Schools
-        </a>
-      </span>
-    <span class="nav__link">
-        <a href="https://weblogin.asu.edu/cas/login">Sign In</a>
-      </span>
-    <span class="nav__link vert">
+<header class="header" aria-label="header navigation">
+    <button
+            onclick="toggleMobileNav()"
+            id="mobile-menu-btn"
+            class="hamburger-wrapper"
+    >
         <img
-                src="/static/image/magnifyingGlassFA.svg"
-                height="12"
-                weight="12"
-                alt="maganifiy"
+                id="mobile-menu-img"
+                src="./public/image/hamburger%20menu%20icon.svg"
+                alt="navigation links dropdown menu"
+                class="hamburger"
         />
-      </span>
-</nav>
-
-<!-- BANNER -->
-<header class="banner">
-    <img
-            src="/assets/ASU_Logo_Stacked_Web_1.png"
-            class="banner__logo"
-            alt="ASU Logo"
-            width="93"
-            height="72"
-    />
-    <h1 class="banner__heading">Admission</h1>
+    </button>
+    <nav id="nav-links" class="nav-bar" aria-label="navigation links">
+        <div class="nav-wrapper">
+            <div class="nav-link-wrap">
+                <a class="nav-link" href="https://www.asu.edu/">ASU Home</a>
+            </div>
+            <div class="nav-link-wrap">
+                <a class="nav-link" href="https://my.asu.edu/">My ASU</a>
+            </div>
+            <div class="nav-link-wrap">
+                <a
+                        class="nav-link"
+                        href="https://www.asu.edu/academics/colleges-schools"
+                >
+                    Colleges and Schools
+                </a>
+            </div>
+            <div class="nav-link-wrap">
+                <a class="nav-link" href="https://weblogin.asu.edu/cas/login"
+                >Sign In</a
+                >
+            </div>
+            <div class="search-container">
+            <span class="search-wrapper">
+              <img
+                      class="search-icon"
+                      src="./public/image/magnifyingGlassFA.svg"
+                      height="12px"
+                      width="12px"
+                      alt="image of a magnifying glass"
+              />
+              <label for="search" class="sr-only">Search ASU</label>
+              <input
+                      id="search"
+                      type="text"
+                      class="search-input"
+                      placeholder="Search ASU"
+              />
+            </span>
+            </div>
+        </div>
+    </nav>
+    <div class="banner wrapper">
+        <a href="#">
+            <img
+                    src="./public/image/ASU_Logo_Stacked_Web_1.png"
+                    class="banner-logo"
+                    alt="ASU Logo"
+            />
+            <img
+                    src="./public/image/asu_horiz@2x.png"
+                    class="banner-logo-mobile h-[32px] w-auto"
+                    alt="ASU Logo"
+            />
+        </a>
+        <h1 class="banner-heading">Admission</h1>
+    </div>
 </header>
 
-<!-- HERO CTA -->
-<div class="hero__container">
-    <img class="hero__image" src="./static/image/asu-sign@2x.png" alt="asu sign" />
-
-    <div class="hero__content">
-        <h2>Apply to ASU</h2>
-        <h3>Your ASU undergraduate journey starts with this application</h3>
+<div class="hero wrapper">
+    <div class="hero-content">
+        <h2 class="hero-heading">
+            <span class="hero-text-bg">Apply to ASU</span>
+        </h2>
+        <h3 class="hero-lead">
+          <span class="hero-text-bg"
+          >Your ASU undergraduate journey starts with this application</span
+          >
+        </h3>
     </div>
 </div>
-<!-- END TOP - MID PAGe -->
 
-<!--  SIDE PANEL  -->
-<aside class="side-panel">
-    <div class="card">
-        <img class="card__icon" src="./static/image/clock.svg" />
-        <h5 class="card__label">Time to apply</h5>
-        <h5 class="carc_glob">
-            Allow about <span class="highlight"> 30 minutes </span> to complete
-            your application. You can save your application and come back later.
+<div class="body-wrapper wrapper">
+    <div class="card-wrapper">
+        <h5 class="detail-label">
+            <span class="text-bg-dark">More about the application</span>
         </h5>
-    </div>
-    <div class="card">
-        <img clss src="./static/image/credit%20card.svg" />
-        <h5 class="card__label">Application fee</h5>
-        <ul class="card__list">
-            <li>
-                <span> Arizona residents </span>
-                <span>$50.00</span>
-            </li>
-            <li>
-                <span> Residents </span>
-                <span>$80.00</span>
-            </li>
-            <li>
-                <span> ASU Online </span>
-                <span>$70.00</span>
-            </li>
-            <li>
-                <span> International </span>
-                <span>$85.00</span>
-            </li>
-        </ul>
-    </div>
-    <div class="card">
-        <img class="card__icon" src="./static/image/school.svg" />
-        <h5 class="card__label">School info</h5>
-        <h5 class="carc_glob">
-            It will be handy to have your high school and previous college
-            information available.
-        </h5>
+        <div class="card">
+            <img
+                    class="card-icon"
+                    src="./public/image/clock.svg"
+                    alt="image of a credit code"
+            />
+            <h5 class="card-title">Time to apply</h5>
+            <h5 class="card-text">
+                Allow about <span class="highlight">30 minutes</span> to complete
+                your application. You can save your application and come back later.
+            </h5>
+        </div>
+        <div class="card">
+            <img
+                    class="card-icon"
+                    src="./public/image/credit%20card.svg"
+                    alt="image of a credit card"
+            />
+            <h5 class="card-title">Application fee</h5>
+            <ul>
+                <li>
+                    <span class="card-text-bold">Arizona residents:</span>
+                    <span class="card-text">$50.00</span>
+                </li>
+                <li>
+                    <span class="card-text-bold">Residents:</span>
+                    <span class="card-text">$80.00</span>
+                </li>
+                <li>
+                    <span class="card-text-bold">ASU Online:</span>
+                    <span class="card-text">$70.00</span>
+                </li>
+                <li>
+                    <span class="card-text-bold">International:</span>
+                    <span class="card-text">$85.00</span>
+                </li>
+            </ul>
+        </div>
+        <div class="card">
+            <img
+                    class="card-icon"
+                    src="./public/image/school.svg"
+                    alt="image of a school"
+            />
+            <h5 class="card-title">School info</h5>
+            <h5 class="card-text">
+                It will be handy to have your high school and previous college
+                information available.
+            </h5>
+        </div>
+
+        <div class="card">
+            <img
+                    class="card-icon"
+                    src="./public/image/question.svg"
+                    alt="image of a question mark"
+            />
+            <h5 class="card-title">Help</h5>
+            <ul>
+                <li>
+                    <span class="card-text-bold">Email:</span>
+                    <span class="card-text-red cursor-pointer"
+                    ><a href="mailto://admissions@asu.edu"
+                    >admissions@asy.edu</a
+                    ></span
+                    >
+                </li>
+                <li>
+                    <span class="card-text-bold">Phone:</span>
+                    <span class="card-text-red cursor-pointer"
+                    ><a href="tel:+14809657788">480-965-7788</a></span
+                    >
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <div class="card">
-        <img class="card__icon" src="./static/image/question.svg" />
-        <h5 class="card__label">Help</h5>
-        <ul class="card__list">
-            <li>
-                <span>Email:</span>
-                <span>admissions@asy.edu</span>
-            </li>
-            <li>
-                <span>Phone:</span>
-                <span>480-965-7788</span>
-            </li>
-        </ul>
-    </div>
-</aside>
+    <main class="main-wrapper">
+        <h4 class="main-heading">
+            <span class="bg-gold">We're beta testing a new application.</span>
+        </h4>
+        <h4 class="main-sub">
+            Let us assist you in getting where you need to go!
+        </h4>
+        <div>
 
-<main class="main">
-    <h4 class="main__heading">We're beta testing a new application.</h4>
-    <h4 class="main__sub-heading">
-        Let us assist you in getting where you need to go!
-    </h4>
-    <hr class="divide" />
-    <label for="email">What's your email address?</label>
+            <form
+                    id="email-form"
+                    class="form-wrapper-email border-b-0"
+                    action=""
+                    method="post"
+            >
+                <label class="email-label" for="email-input"
+                >What's your email address?</label
+                >
+                <div class="input-group">
+                    <input
+                            id="email-input"
+                            type="email"
+                            name="email"
+                            class="email-input"
+                            placeholder="Enter email address"
+                    />
+                    <button
+                            type="submit"
+                            class="group-btn"
+                            id="email-submit-btn"
+                            disabled
+                    >
+                        <img
+                                src="./public/image/Icon%20-%20arrow-right-solid.svg"
+                                alt="image of a arrow pointing right"
+                        />
+                    </button>
+                </div>
+                <small id="email-prompt" class="small-text"
+                >If you've applied before, please enter the email you've used on
+                    previous applications.</small
+                >
+            </form>
 
-    <form action="/api/email-vaildate" method="post">
-        <input id="email" type="email" name="email" class="email-vaildate__input" />
-        <button type="button" class="email-vaildate__button"><img src="/assets/Icon - arrow-right-solid.svg" alt="" /></button>
-        <!-- if -->
-        <small
-        >If you've applied before, please enter the email you've used on
-            previous applications.</small
-        >
-        <!-- else -->
-        <!-- <hr /> -->
-    </form>
+            <div id="is-registered-prompt" class="hidden">
+                <div class="login-prompt">
+                    <img
+                            src="./public/image/Icon%20-%20check-circle-solid.svg"
+                            alt="image of a check"
+                            width="28px"
+                            height="28px"
+                    />
+                    <span class="login-prompt-text"
+                    >You have one or more existing applications associated with this
+                email. Log in to view or continue your application.</span
+                    >
+                </div>
+                <button
+                        type="button"
+                        id="login-btn"
+                        class="login-btn"
+                        onclick="handleLoginRedirect()"
+                >
+                    Login
+                </button>
+                <a class="alt-login-link" href="#"
+                >I want to use a different email</a
+                >
+            </div>
 
-    <!-- <form action="/api/radio-program" method="post">
-      <h4>Which type of program are you applying for?</h4>
-      <div class="group-radio">
-        <input type="radio" name="radio-program" class="radio-input" />
-        <label for="radio-program">A fully online degree program</label>
-      </div>
-      <div class="group-radio">
-        <input type="radio" name="radio-program" class="radio-input" />
-        <label for="radio-program">An on campus, ASU Sync, ASU Local, non-degree or international student visa program</label>
-      </div>
-      <div class="group-radio">
-        <input type="radio" name="radio-program" class="radio-input" />
-        <label for="radio-program">I'm not sure</label>
-      </div>
-      <button type="button" class="radio-submit">continue</button>
-    </form> -->
-</main>
-<footer class="footer">
-    <nav class="nave-lo">
-        <ul>
-            <li>Map and Locations</li>
-            <li>Jobs</li>
-            <li>Directory</li>
-            <li>Contact ASU</li>
-            <li>My ASU</li>
-        </ul>
+            <form id="radio-form" action="#" method="post" class="mt-9 hidden">
+                <h4 class="radio-question">
+                    Which type of program are you applying for?
+                </h4>
+                <div class="radio-grid">
+                    <input
+                            id="radio-program3"
+                            type="radio"
+                            name="programForm"
+                            class="radio-input"
+                    />
+                    <label for="radio-program3" class="radio-label"
+                    >A fully online degree program</label
+                    >
+                    <input
+                            id="radio-program2"
+                            type="radio"
+                            name="programForm"
+                            class="radio-input"
+                    />
+                    <label for="radio-program2" class="radio-label"
+                    >An on campus, ASU Sync, ASU Local, non-degree or international
+                        student visa program</label
+                    >
+                    <input
+                            id="radio-program1"
+                            type="radio"
+                            name="programForm"
+                            class="radio-input"
+                    />
+                    <label for="radio-program1" class="radio-label"
+                    >I'm not sure</label
+                    >
+                </div>
+                <button
+                        id="radio-submit-btn"
+                        type="submit"
+                        class="radio-submit"
+                        disabled
+                >
+                    Continue
+                </button>
+            </form>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <nav class="bg-gold" aria-label="footer links">
+        <div class="foot-nav-wrapper-top">
+            <img
+                    class="nav-img"
+                    src="./public/image/ASU 2023 Innovation RGB for Digital Lockup wide on gold@2x.png"
+                    alt="ASU 2023 Innovation RGB for Digital Lockup wide on gold"
+            />
+            <div class="foot-grid-top">
+                <a href="#">Map and Locations</a>
+                <a href="#">Jobs</a>
+                <a href="#">Directory</a>
+                <a href="#" class="text-end">Contact ASU</a>
+                <a href="#" class="text-end">My ASU</a>
+            </div>
+        </div>
     </nav>
-    <nav class="legal-links">
-        <span>Copyright and Trademark</span>
-        <span>Accessibility</span>
-        <span>Privacy</span>
-        <span>Terms of Use</span>
-        <span>Emergent</span>
+    <nav class="nav-bg-gray" aria-label="legal links">
+        <div class="wrapper">
+            <div class="foot-grid-bottom">
+                <a href="#">Copyright and Trademark</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Privacy</a>
+                <a class="text-end">Terms of Use</a>
+                <a class="text-end">Emergency</a>
+                <a class="text-end">Covid-19 Information</a>
+            </div>
+        </div>
     </nav>
 </footer>
-
 </body>
 </html>
