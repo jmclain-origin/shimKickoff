@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "outDir": "./dist/",
+    "target": "ES6",
+    "noImplicitAny": true
+  },
+  "include": ["./typescript"],
+  "exclude": ["./node_modules"]
+}
