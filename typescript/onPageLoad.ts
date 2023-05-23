@@ -5,10 +5,6 @@ const EMAIL_REGEX: RegExp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 /**
  * @callback initListener binds additional listeners for email input */
 export default function initListener(): void {
-    // TODO: remove window alert and timeout
-    setTimeout(() => {
-    window.alert(`valid emails\n\nlegacy app v1\nfoo@example.com\n\nnew app v2\ngdgdsag@test.asu.edu\n\nuse any for new user (dnf)`)
-    }, 1000)
     const emailForm = document.getElementById("email-form") as HTMLFormElement;
     const emailInput = document.getElementById("email-input") as HTMLInputElement;
     // (1.1) listener for valid email

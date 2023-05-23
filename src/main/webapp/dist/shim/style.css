@@ -446,7 +446,7 @@ body {
     height: 256px;
     flex-direction: column;
     justify-content: flex-end;
-    background-image: url('../public/image/asu-sign@2x.png');
+    background-image: url('./image/asu-sign@2x.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

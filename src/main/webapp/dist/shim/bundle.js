@@ -18,10 +18,11 @@ exports.V2_APP_DOMAIN = 'https://www.ugappv2.com/';
 /***/ }),
 
 /***/ 41:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+const constants_1 = __webpack_require__(578);
 /**
  * @function handleReturningApplicant
  * @param {string} source value passed from the results found in DB
@@ -37,9 +38,7 @@ function handleReturningApplicant(source) {
         true;
     document.getElementById("email-form").style.paddingBottom = "0";
     if (source) {
-        // TODO: remove window alert once we have the updated constants urls
-        // (document.getElementById('login-anchor') as HTMLAnchorElement).href = source === 'ugappv1' ? V1_APP_DOMAIN : V2_APP_DOMAIN;
-        window.alert(`Need redirect URLs, logic already there, this user would had gone to ${source}`);
+        document.getElementById('login-anchor').href = source === 'ugappv1' ? constants_1.V1_APP_DOMAIN : constants_1.V2_APP_DOMAIN;
     }
 }
 exports["default"] = handleReturningApplicant;
@@ -155,7 +154,6 @@ let APP_PATH;
 // Listener Callback (2.2)
 function handleProgramFormSubmission(event) {
     event.preventDefault();
-    const formData = new FormData(this);
     const ctlGroup = this.elements;
     hasRadioCollectionSelectedValue(ctlGroup.programForm);
     if (SELECTED === 'full') {
@@ -166,8 +164,7 @@ function handleProgramFormSubmission(event) {
         APP_PATH = constants_1.V1_APP_DOMAIN;
     }
     // TODO: remove window alert
-    // (document.getElementById('radio-anchor') as HTMLAnchorElement).href = APP_PATH;
-    window.alert(`redirecting user to ${APP_PATH}`);
+    document.getElementById('radio-anchor').href = APP_PATH;
 }
 function hasRadioCollectionSelectedValue(radioCollection) {
     for (let node of radioCollection) {
@@ -208,10 +205,6 @@ const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 /**
  * @callback initListener binds additional listeners for email input */
 function initListener() {
-    // TODO: remove window alert and timeout
-    setTimeout(() => {
-        window.alert(`valid emails\n\nlegacy app v1\nfoo@example.com\n\nnew app v2\ngdgdsag@test.asu.edu\n\nuse any for new user (dnf)`);
-    }, 1000);
     const emailForm = document.getElementById("email-form");
     const emailInput = document.getElementById("email-input");
     // (1.1) listener for valid email

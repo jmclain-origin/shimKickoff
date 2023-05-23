@@ -18,7 +18,7 @@
     >
         <img
                 id="mobile-menu-img"
-                src="./public/image/hamburger%20menu%20icon.svg"
+                src="./dist/shim/image/hamburger%20menu%20icon.svg"
                 alt="navigation links dropdown menu"
                 class="hamburger"
         />
@@ -48,7 +48,7 @@
             <span class="search-wrapper">
               <img
                       class="search-icon"
-                      src="./public/image/magnifyingGlassFA.svg"
+                      src="./dist/shim/image/magnifyingGlassFA.svg"
                       height="12px"
                       width="12px"
                       alt="image of a magnifying glass"
@@ -67,12 +67,12 @@
     <div class="banner wrapper">
         <a href="#">
             <img
-                    src="./public/image/ASU_Logo_Stacked_Web_1.png"
+                    src="./dist/shim/image/ASU_Logo_Stacked_Web_1.png"
                     class="banner-logo"
                     alt="ASU Logo"
             />
             <img
-                    src="./public/image/asu_horiz@2x.png"
+                    src="./dist/shim/image/asu_horiz@2x.png"
                     class="banner-logo-mobile h-[32px] w-auto"
                     alt="ASU Logo"
             />
@@ -102,7 +102,7 @@
         <div class="card">
             <img
                     class="card-icon"
-                    src="./public/image/clock.svg"
+                    src="./dist/shim/image/clock.svg"
                     alt="image of a credit code"
             />
             <h5 class="card-title">Time to apply</h5>
@@ -114,7 +114,7 @@
         <div class="card">
             <img
                     class="card-icon"
-                    src="./public/image/credit%20card.svg"
+                    src="./dist/shim/image/credit%20card.svg"
                     alt="image of a credit card"
             />
             <h5 class="card-title">Application fee</h5>
@@ -140,7 +140,7 @@
         <div class="card">
             <img
                     class="card-icon"
-                    src="./public/image/school.svg"
+                    src="./dist/shim/image/school.svg"
                     alt="image of a school"
             />
             <h5 class="card-title">School info</h5>
@@ -153,7 +153,7 @@
         <div class="card">
             <img
                     class="card-icon"
-                    src="./public/image/question.svg"
+                    src="./dist/shim/image/question.svg"
                     alt="image of a question mark"
             />
             <h5 class="card-title">Help</h5>
@@ -209,7 +209,7 @@
                             disabled
                     >
                         <img
-                                src="./public/image/Icon%20-%20arrow-right-solid.svg"
+                                src="./dist/shim/image/Icon%20-%20arrow-right-solid.svg"
                                 alt="image of a arrow pointing right"
                         />
                     </button>
@@ -223,7 +223,7 @@
             <div id="is-registered-prompt" class="hidden">
                 <div class="login-prompt">
                     <img
-                            src="./public/image/Icon%20-%20check-circle-solid.svg"
+                            src="./dist/shim/image/Icon%20-%20check-circle-solid.svg"
                             alt="image of a check"
                             width="28px"
                             height="28px"
@@ -301,7 +301,7 @@
         <div class="foot-nav-wrapper-top">
             <img
                     class="nav-img"
-                    src="./public/image/ASU 2023 Innovation RGB for Digital Lockup wide on gold@2x.png"
+                    src="./dist/shim/image/ASU 2023 Innovation RGB for Digital Lockup wide on gold@2x.png"
                     alt="ASU 2023 Innovation RGB for Digital Lockup wide on gold"
             />
             <div class="foot-grid-top">

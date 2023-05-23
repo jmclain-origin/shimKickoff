@@ -1,3 +1,4 @@
+import { V1_APP_DOMAIN, V2_APP_DOMAIN } from "./constants";
 /**
  * @function handleReturningApplicant
  * @param {string} source value passed from the results found in DB
@@ -22,8 +23,6 @@ export default function handleReturningApplicant(source?: 'ugappv1'| 'ugappv2') 
     ).style.paddingBottom = "0";
 
     if (source) {
-        // TODO: remove window alert once we have the updated constants urls
-        // (document.getElementById('login-anchor') as HTMLAnchorElement).href = source === 'ugappv1' ? V1_APP_DOMAIN : V2_APP_DOMAIN;
-        window.alert(`Need redirect URLs, logic already there, this user would had gone to ${source}`)
+        (document.getElementById('login-anchor') as HTMLAnchorElement).href = source === 'ugappv1' ? V1_APP_DOMAIN : V2_APP_DOMAIN;
     }
 }
