@@ -250,6 +250,14 @@
                 <h4 class="radio-question">
                     Which type of program are you applying for?
                 </h4>
+                <button
+                        id="radio-submit-btn"
+                        type="submit"
+                        class="radio-submit"
+                        disabled
+                >
+                    <a id="radio-anchor" href="#">Continue</a>
+                </button>
                 <div class="radio-grid">
                     <input
                             id="radio-program3"
@@ -283,14 +291,6 @@
                     >I'm not sure</label
                     >
                 </div>
-                <button
-                        id="radio-submit-btn"
-                        type="submit"
-                        class="radio-submit"
-                        disabled
-                >
-                    Continue
-                </button>
             </form>
         </div>
     </main>

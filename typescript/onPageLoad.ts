@@ -1,14 +1,19 @@
-import {API_DOMAIN, EMAIL_REGEX} from "./constants";
-import { applyClassForResponsiveNavbar } from './utilis';
+import {API_DOMAIN} from "./constants";
 import handleNewApplicant from './newApp';
 import handleReturningApplicant from "./continueApp";
-
-function initListenerChain(): void {
+const EMAIL_REGEX: RegExp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+/**
+ * @callback initListener binds additional listeners for email input */
+export default function initListener(): void {
+    // TODO: remove window alert and timeout
+    setTimeout(() => {
+    window.alert(`valid emails\n\nlegacy app v1\nfoo@example.com\n\nnew app v2\ngdgdsag@test.asu.edu\n\nuse any for new user (dnf)`)
+    }, 1000)
     const emailForm = document.getElementById("email-form") as HTMLFormElement;
     const emailInput = document.getElementById("email-input") as HTMLInputElement;
-    // (1.1) listen for valid email
+    // (1.1) listener for valid email
     emailInput.addEventListener("input", toggleEmailSubmitButton);
-    // (1.2) listen for email submission
+    // (1.2) listener for email form submission
     emailForm.addEventListener("submit", handleEmailFormSubmission);
     applyClassForResponsiveNavbar(window.innerWidth);
 }
@@ -18,7 +23,7 @@ function toggleEmailSubmitButton(this: HTMLInputElement): void {
     (document.getElementById("email-submit-btn") as HTMLButtonElement).disabled =
         !EMAIL_REGEX.test(this.value);
 }
-// (1.2)
+// (1.2) callback - handles email submission - validates email
 function handleEmailFormSubmission(this: HTMLFormElement, event: SubmitEvent) {
     event.preventDefault();
     const formData = new FormData(this);
@@ -53,5 +58,15 @@ function handleEmailFormSubmission(this: HTMLFormElement, event: SubmitEvent) {
         }
     })();
 }
+export function applyClassForResponsiveNavbar(viewportWidth: number): void {
+    const navLinks = document.getElementById("nav-links") as HTMLDivElement;
+    if (viewportWidth < 768) {
+        navLinks.classList.remove("desktop");
+        navLinks.classList.add("mobile");
+    } else {
+        navLinks.classList.remove("mobile");
+        navLinks.classList.add("desktop");
+    }
+}
 
-export default initListenerChain;
+

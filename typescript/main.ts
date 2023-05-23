@@ -1,8 +1,10 @@
-import onPageLoad from "./onPageLoad";
-import { applyClassForResponsiveNavbar } from './utilis';
+import onPageLoad, { applyClassForResponsiveNavbar } from "./onPageLoad";
 
+/**
+ * @event PageLoad mounts listeners and handles user input then redirects to next steps */
 document.addEventListener("DOMContentLoaded", onPageLoad);
-
+/**
+ * @event viewport size change. Handles edge case, close mobile nav when swapping to desktop view */
 window.addEventListener("resize", () => {
     const navElement = document.getElementById("nav-links");
     applyClassForResponsiveNavbar(window.innerWidth);
@@ -17,8 +19,9 @@ window.addEventListener("resize", () => {
 /**
  * @function toggleMobileNav
  * @description applies/removes DOM element class names that trigger ui changes
+ * @note this function is called on in the DOM
  */
-function toggleMobileNav(): void {
+export function toggleMobileNav(): void {
     const navLinksParent = document.getElementById("nav-links");
     const mobileMenuImg = document.getElementById(
         "mobile-menu-img"

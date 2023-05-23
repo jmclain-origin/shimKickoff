@@ -1,9 +1,8 @@
 /**
  * @function handleReturningApplicant
- * @param {string} source
- * @description This function will update the ui and appliy the nesessary link in to login
- */
-function handleReturningApplicant(source?: 'ugappv1'| 'ugappv2') {
+ * @param {string} source value passed from the results found in DB
+ * @description updates UI and directs user to next step per requirements */
+export default function handleReturningApplicant(source?: 'ugappv1'| 'ugappv2') {
     (
         document.getElementById("is-registered-prompt") as HTMLDivElement
     ).classList.remove("hidden");
@@ -23,9 +22,8 @@ function handleReturningApplicant(source?: 'ugappv1'| 'ugappv2') {
     ).style.paddingBottom = "0";
 
     if (source) {
-        // (document.getElementById('login-anchor') as HTMLAnchorElement).href = source === 'ugappv1' ? V1_APP_DOMIAN : V2_APP_DOMIAN;
+        // TODO: remove window alert once we have the updated constants urls
+        // (document.getElementById('login-anchor') as HTMLAnchorElement).href = source === 'ugappv1' ? V1_APP_DOMAIN : V2_APP_DOMAIN;
         window.alert(`Need redirect URLs, logic already there, this user would had gone to ${source}`)
     }
 }
-
-export default handleReturningApplicant;
