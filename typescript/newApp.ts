@@ -53,8 +53,7 @@ function handleProgramFormSubmission(
         APP_PATH = V1_APP_DOMAIN;
     }
     // TODO: remove window alert
-    // (document.getElementById('radio-anchor') as HTMLAnchorElement).href = APP_PATH;
-    window.alert(`redirecting user to ${APP_PATH}`);
+    (document.getElementById('radio-anchor') as HTMLAnchorElement).href = APP_PATH;
 }
 function hasRadioCollectionSelectedValue(
     radioCollection: RadioNodeList
