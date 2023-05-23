@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UnderGraduateAdmissions</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-    <script defer src="./assets/bundle.js"></script>
+    <link rel="stylesheet" href="./dist/shim/style.css" />
+    <script defer src="./dist/shim/bundle.js"></script>
 </head>
 <body>
 <header class="header" aria-label="header navigation">

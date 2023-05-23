@@ -61,7 +61,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>./src/main/webapp/assets/</outputDirectory>
+              <outputDirectory>./src/main/webapp/dist/shim/</outputDirectory>
               <resources>
                 <resource>
                   <directory>dist</directory>
