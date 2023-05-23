@@ -15,14 +15,14 @@ OS Requirements.
 - Tomcat 8.5
 
 ### Run it yourself
-Project setting should preload with intelliJ. If not my require a couple of changes, I'll assume you have the basic knowledge on how to do that.
+Project setting should preload with intelliJ. If not, it may require a couple of changes, I'll assume you have the basic knowledge on how to do that.
 Simple set up, use Tomcat to serve static files. Before you launch Tomcat you need to generate the `.war` file. Execute command.
 
 ```bash
 $ mvn clean && mvn install && mvn package
 ```
 
-### Frontend UI only
+### Frontend UI files only
 
 Grab the webpage content only. You'll need to get...
 1. the markup file @ [`/src/main/webapp/index.jsp`](./src/main/webapp/index.jsp)
@@ -33,13 +33,22 @@ Note: Keep the sources ing the same root directory and nested file tree, else ma
 
 ## Flow Demo
 
+### Test Emails
+
+foo@example.com <-- V1
+
+gdgdsag@test.asu.edu <-- V2
+
 On page load
-[Landing](./Screenshot%201.png)
+![Landing](./Screenshot%201.png)
 
-Currently the script will treat any email entered with `@asu.edu` as a preexisting user and take them to the next UI interface
 
-[Sign in](./Screenshot%202.png)
 
-All other email submitted will just continue to the next form to select program 
+![Sign in](./Screenshot%202.png)
 
-[Program selection](./Screenshot%203.png)
+
+
+![Program selection](./Screenshot%203.png)
+
+
+

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UnderGraduateAdmissions</title>
-    <link rel="stylesheet" href="./dist/style.css" />
-    <script defer src="./dist/main.js"></script>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script defer src="./assets/bundle.js"></script>
 </head>
 <body>
 <header class="header" aria-label="header navigation">
@@ -237,9 +237,9 @@
                         type="button"
                         id="login-btn"
                         class="login-btn"
-                        onclick="handleLoginRedirect()"
-                >
+                ><a id="login-anchor" href="#">
                     Login
+                </a>
                 </button>
                 <a class="alt-login-link" href="#"
                 >I want to use a different email</a
@@ -256,6 +256,7 @@
                             type="radio"
                             name="programForm"
                             class="radio-input"
+                            value="full"
                     />
                     <label for="radio-program3" class="radio-label"
                     >A fully online degree program</label
@@ -265,6 +266,7 @@
                             type="radio"
                             name="programForm"
                             class="radio-input"
+                            value="hybrid"
                     />
                     <label for="radio-program2" class="radio-label"
                     >An on campus, ASU Sync, ASU Local, non-degree or international
@@ -275,6 +277,7 @@
                             type="radio"
                             name="programForm"
                             class="radio-input"
+                            value="unsure"
                     />
                     <label for="radio-program1" class="radio-label"
                     >I'm not sure</label

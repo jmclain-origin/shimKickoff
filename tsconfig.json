@@ -3,7 +3,9 @@
     "module": "CommonJS",
     "outDir": "./dist/",
     "target": "ES6",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "strict": true,
+    "esModuleInterop": true,
   },
   "include": ["./typescript"],
   "exclude": ["./node_modules"]

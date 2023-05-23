@@ -1,9 +1,7 @@
+import onPageLoad from "./onPageLoad";
+import { applyClassForResponsiveNavbar } from './utilis';
 
-
-
-import { initListenerChain, applyClassForResponsiveNavbar } from './listenerCallbacks';
-
-document.addEventListener("DOMContentLoaded", initListenerChain);
+document.addEventListener("DOMContentLoaded", onPageLoad);
 
 window.addEventListener("resize", () => {
     const navElement = document.getElementById("nav-links");
@@ -16,33 +14,9 @@ window.addEventListener("resize", () => {
         navElement.classList.remove("is-open");
 });
 
-
-/**
- * @function handleLoginRedirect
- * @description redirects to the appropriate login page
- * @note used in HTML / JSP
- */
-async function handleLoginRedirect() {
-    const confirm = await confirmPrompt(
-        `Do you want to go to login page?\n${localStorage.getItem("email")}`
-    );
-    if (confirm) {
-        localStorage.clear();
-        window.location.href = "/";
-    }
-}
-
-/** @description helper/filler */
-async function confirmPrompt(confirmationPrompt: string) {
-    return new Promise<boolean>(async (resolve, _reject) => {
-        const [value] = await Promise.all([window.confirm(confirmationPrompt)]);
-        return resolve(value);
-    });
-}
-
 /**
  * @function toggleMobileNav
- * @description applies or removes element class names triggering ui changes
+ * @description applies/removes DOM element class names that trigger ui changes
  */
 function toggleMobileNav(): void {
     const navLinksParent = document.getElementById("nav-links");
