@@ -17,6 +17,11 @@
     <predefined_log_file id="Tomcat Manager" />
     <predefined_log_file id="Tomcat Host Manager" />
     <predefined_log_file id="Tomcat Localhost Access" />
+    <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+      <option name="credential" />
+      <option name="region" />
+      <option name="useCurrentConnection" value="false" />
+    </extension>
     <RunnerSettings RunnerId="Debug">
       <option name="DEBUG_PORT" value="58857" />
     </RunnerSettings>
@@ -82,8 +87,6 @@
     </ConfigurationWrapper>
     <method v="2">
       <option name="Make" enabled="true" />
-      <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean" />
-      <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="package" />
       <option name="BuildArtifacts" enabled="true">
         <artifact name="shimKickoff:war exploded" />
       </option>
