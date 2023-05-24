@@ -10,76 +10,77 @@
     <script defer src="./dist/shim/bundle.js"></script>
 </head>
 <body>
-<header class="header" aria-label="header navigation">
-    <button
-            onclick="toggleMobileNav()"
-            id="mobile-menu-btn"
-            class="hamburger-wrapper"
-    >
-        <img
-                id="mobile-menu-img"
-                src="./dist/shim/image/hamburger%20menu%20icon.svg"
-                alt="navigation links dropdown menu"
-                class="hamburger"
-        />
-    </button>
-    <nav id="nav-links" class="nav-bar" aria-label="navigation links">
-        <div class="nav-wrapper">
-            <div class="nav-link-wrap">
-                <a class="nav-link" href="https://www.asu.edu/">ASU Home</a>
-            </div>
-            <div class="nav-link-wrap">
-                <a class="nav-link" href="https://my.asu.edu/">My ASU</a>
-            </div>
-            <div class="nav-link-wrap">
-                <a
-                        class="nav-link"
-                        href="https://www.asu.edu/academics/colleges-schools"
-                >
-                    Colleges and Schools
-                </a>
-            </div>
-            <div class="nav-link-wrap">
-                <a class="nav-link" href="https://weblogin.asu.edu/cas/login"
-                >Sign In</a
-                >
-            </div>
-            <div class="search-container">
-            <span class="search-wrapper">
-              <img
-                      class="search-icon"
-                      src="./dist/shim/image/magnifyingGlassFA.svg"
-                      height="12px"
-                      width="12px"
-                      alt="image of a magnifying glass"
-              />
-              <label for="search" class="sr-only">Search ASU</label>
-              <input
-                      id="search"
-                      type="text"
-                      class="search-input"
-                      placeholder="Search ASU"
-              />
-            </span>
-            </div>
-        </div>
-    </nav>
-    <div class="banner wrapper">
-        <a href="#">
-            <img
-                    src="./dist/shim/image/ASU_Logo_Stacked_Web_1.png"
-                    class="banner-logo"
-                    alt="ASU Logo"
-            />
-            <img
-                    src="./dist/shim/image/asu_horiz@2x.png"
-                    class="banner-logo-mobile h-[32px] w-auto"
-                    alt="ASU Logo"
-            />
-        </a>
-        <h1 class="banner-heading">Admission</h1>
-    </div>
-</header>
+<header id="header-container"></header>
+<%--<header class="header" aria-label="header navigation">--%>
+<%--    <button--%>
+<%--            onclick="toggleMobileNav()"--%>
+<%--            id="mobile-menu-btn"--%>
+<%--            class="hamburger-wrapper"--%>
+<%--    >--%>
+<%--        <img--%>
+<%--                id="mobile-menu-img"--%>
+<%--                src="./dist/shim/image/hamburger%20menu%20icon.svg"--%>
+<%--                alt="navigation links dropdown menu"--%>
+<%--                class="hamburger"--%>
+<%--        />--%>
+<%--    </button>--%>
+<%--    <nav id="nav-links" class="nav-bar" aria-label="navigation links">--%>
+<%--        <div class="nav-wrapper">--%>
+<%--            <div class="nav-link-wrap">--%>
+<%--                <a class="nav-link" href="https://www.asu.edu/">ASU Home</a>--%>
+<%--            </div>--%>
+<%--            <div class="nav-link-wrap">--%>
+<%--                <a class="nav-link" href="https://my.asu.edu/">My ASU</a>--%>
+<%--            </div>--%>
+<%--            <div class="nav-link-wrap">--%>
+<%--                <a--%>
+<%--                        class="nav-link"--%>
+<%--                        href="https://www.asu.edu/academics/colleges-schools"--%>
+<%--                >--%>
+<%--                    Colleges and Schools--%>
+<%--                </a>--%>
+<%--            </div>--%>
+<%--            <div class="nav-link-wrap">--%>
+<%--                <a class="nav-link" href="https://weblogin.asu.edu/cas/login"--%>
+<%--                >Sign In</a--%>
+<%--                >--%>
+<%--            </div>--%>
+<%--            <div class="search-container">--%>
+<%--            <span class="search-wrapper">--%>
+<%--              <img--%>
+<%--                      class="search-icon"--%>
+<%--                      src="./dist/shim/image/magnifyingGlassFA.svg"--%>
+<%--                      height="12px"--%>
+<%--                      width="12px"--%>
+<%--                      alt="image of a magnifying glass"--%>
+<%--              />--%>
+<%--              <label for="search" class="sr-only">Search ASU</label>--%>
+<%--              <input--%>
+<%--                      id="search"--%>
+<%--                      type="text"--%>
+<%--                      class="search-input"--%>
+<%--                      placeholder="Search ASU"--%>
+<%--              />--%>
+<%--            </span>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </nav>--%>
+<%--    <div class="banner wrapper">--%>
+<%--        <a href="#">--%>
+<%--            <img--%>
+<%--                    src="./dist/shim/image/ASU_Logo_Stacked_Web_1.png"--%>
+<%--                    class="banner-logo"--%>
+<%--                    alt="ASU Logo"--%>
+<%--            />--%>
+<%--            <img--%>
+<%--                    src="./dist/shim/image/asu_horiz@2x.png"--%>
+<%--                    class="banner-logo-mobile h-[32px] w-auto"--%>
+<%--                    alt="ASU Logo"--%>
+<%--            />--%>
+<%--        </a>--%>
+<%--        <h1 class="banner-heading">Admission</h1>--%>
+<%--    </div>--%>
+<%--</header>--%>
 
 <div class="hero wrapper">
     <div class="hero-content">
@@ -296,35 +297,42 @@
     </main>
 </div>
 
-<footer>
-    <nav class="bg-gold" aria-label="footer links">
-        <div class="foot-nav-wrapper-top">
-            <img
-                    class="nav-img"
-                    src="./dist/shim/image/ASU 2023 Innovation RGB for Digital Lockup wide on gold@2x.png"
-                    alt="ASU 2023 Innovation RGB for Digital Lockup wide on gold"
-            />
-            <div class="foot-grid-top">
-                <a href="#">Map and Locations</a>
-                <a href="#">Jobs</a>
-                <a href="#">Directory</a>
-                <a href="#" class="text-end">Contact ASU</a>
-                <a href="#" class="text-end">My ASU</a>
-            </div>
-        </div>
-    </nav>
-    <nav class="nav-bg-gray" aria-label="legal links">
-        <div class="wrapper">
-            <div class="foot-grid-bottom">
-                <a href="#">Copyright and Trademark</a>
-                <a href="#">Accessibility</a>
-                <a href="#">Privacy</a>
-                <a class="text-end">Terms of Use</a>
-                <a class="text-end">Emergency</a>
-                <a class="text-end">Covid-19 Information</a>
-            </div>
-        </div>
-    </nav>
-</footer>
+<%--<footer>--%>
+<%--    <nav class="bg-gold" aria-label="footer links">--%>
+<%--        <div class="foot-nav-wrapper-top">--%>
+<%--            <img--%>
+<%--                    class="nav-img"--%>
+<%--                    src="./dist/shim/image/ASU 2023 Innovation RGB for Digital Lockup wide on gold@2x.png"--%>
+<%--                    alt="ASU 2023 Innovation RGB for Digital Lockup wide on gold"--%>
+<%--            />--%>
+<%--            <div class="foot-grid-top">--%>
+<%--                <a href="#">Map and Locations</a>--%>
+<%--                <a href="#">Jobs</a>--%>
+<%--                <a href="#">Directory</a>--%>
+<%--                <a href="#" class="text-end">Contact ASU</a>--%>
+<%--                <a href="#" class="text-end">My ASU</a>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </nav>--%>
+<%--    <nav class="nav-bg-gray" aria-label="legal links">--%>
+<%--        <div class="wrapper">--%>
+<%--            <div class="foot-grid-bottom">--%>
+<%--                <a href="#">Copyright and Trademark</a>--%>
+<%--                <a href="#">Accessibility</a>--%>
+<%--                <a href="#">Privacy</a>--%>
+<%--                <a class="text-end">Terms of Use</a>--%>
+<%--                <a class="text-end">Emergency</a>--%>
+<%--                <a class="text-end">Covid-19 Information</a>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </nav>--%>
+<%--</footer>--%>
+<footer id="footer-container"></footer>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js" integrity="sha512-qlzIeUtTg7eBpmEaS12NZgxz52YYZVF5myj89mjJEesBd/oE9UPsYOX2QAXzvOAZYEvQohKdcY8zKE02ifXDmA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js" integrity="sha512-9jGNr5Piwe8nzLLYTk8QrEMPfjGU0px80GYzKZUxi7lmCfrBjtyCc1V5kkS5vxVwwIB7Qpzc7UxLiQxfAN30dw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/uga_admissionsapp/public/unity/header/vendor.umd.js?"></script>
+<script src="/uga_admissionsapp/public/unity/header/asuHeader.umd.js?"></script>
+<script src="/uga_admissionsapp/public/unity/footer/vendor.umd.js?"></script>
+<script src="/uga_admissionsapp/public/unity/footer/asuFooter.umd.js?"></script>
 </html>
