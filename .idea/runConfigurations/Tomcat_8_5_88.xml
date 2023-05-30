@@ -3,9 +3,9 @@
     <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
-      <artifact name="shimKickoff:war exploded">
+      <artifact name="shimKickoff:war">
         <settings>
-          <option name="CONTEXT_PATH" value="/shimKickoff_war_exploded" />
+          <option name="CONTEXT_PATH" value="/shimKickoff_war" />
         </settings>
       </artifact>
     </deployment>
@@ -88,7 +88,7 @@
     <method v="2">
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="shimKickoff:war exploded" />
+        <artifact name="shimKickoff:war" />
       </option>
     </method>
   </configuration>
