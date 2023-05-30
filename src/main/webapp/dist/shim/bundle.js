@@ -50,69 +50,14 @@ exports["default"] = handleReturningApplicant;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.toggleMobileNav = void 0;
-const onPageLoad_1 = __importStar(__webpack_require__(511));
+const onPageLoad_1 = __importDefault(__webpack_require__(511));
 /**
  * @event PageLoad mounts listeners and handles user input then redirects to next steps */
 document.addEventListener("DOMContentLoaded", onPageLoad_1.default);
-/**
- * @event viewport size change. Handles edge case, close mobile nav when swapping to desktop view */
-window.addEventListener("resize", () => {
-    const navElement = document.getElementById("nav-links");
-    (0, onPageLoad_1.applyClassForResponsiveNavbar)(window.innerWidth);
-    if (window.innerWidth >= 768 &&
-        navElement &&
-        navElement.classList.contains("is-open"))
-        navElement.classList.remove("is-open");
-});
-/**
- * @function toggleMobileNav
- * @description applies/removes DOM element class names that trigger ui changes
- * @note this function is called on in the DOM
- */
-function toggleMobileNav() {
-    const navLinksParent = document.getElementById("nav-links");
-    const mobileMenuImg = document.getElementById("mobile-menu-img");
-    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-    if (navLinksParent) {
-        if (navLinksParent.classList.contains("is-open")) {
-            mobileMenuImg.src = "./public/image/hamburger%20menu%20icon.svg";
-            navLinksParent.classList.remove("is-open");
-            mobileMenuBtn.classList.remove("open");
-        }
-        else {
-            mobileMenuImg.src = "./public/image/times-solid.svg";
-            navLinksParent.classList.add("is-open");
-            mobileMenuBtn.classList.add("open");
-        }
-    }
-}
-exports.toggleMobileNav = toggleMobileNav;
-// @ts-ignore
 window.AsuHeader.initGlobalHeader({
     targetSelector: '#header-container',
     props: {
@@ -128,7 +73,6 @@ window.AsuHeader.initGlobalHeader({
         loginLink: "https://www.asu.edu/caslogin?returnto=/",
     },
 });
-// @ts-ignore
 window.AsuFooter.initASUFooter({
     targetSelector: '#footer-container',
     props: {},
@@ -218,7 +162,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.applyClassForResponsiveNavbar = void 0;
 const constants_1 = __webpack_require__(578);
 const newApp_1 = __importDefault(__webpack_require__(513));
 const continueApp_1 = __importDefault(__webpack_require__(41));
@@ -232,7 +175,6 @@ function initListener() {
     emailInput.addEventListener("input", toggleEmailSubmitButton);
     // (1.2) listener for email form submission
     emailForm.addEventListener("submit", handleEmailFormSubmission);
-    applyClassForResponsiveNavbar(window.innerWidth);
 }
 exports["default"] = initListener;
 // (1.1) callback - handles email submit button availability - toggles disabled state - validates email
@@ -277,17 +219,6 @@ function handleEmailFormSubmission(event) {
         }
     }))();
 }
-function applyClassForResponsiveNavbar(viewportWidth) {
-    // const navLinks = document.getElementById("nav-links") as HTMLDivElement;
-    // if (viewportWidth < 768) {
-    //     navLinks.classList.remove("desktop");
-    //     navLinks.classList.add("mobile");
-    // } else {
-    //     navLinks.classList.remove("mobile");
-    //     navLinks.classList.add("desktop");
-    // }
-}
-exports.applyClassForResponsiveNavbar = applyClassForResponsiveNavbar;
 
 
 /***/ })

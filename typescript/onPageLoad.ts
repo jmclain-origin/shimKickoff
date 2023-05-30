@@ -11,7 +11,7 @@ export default function initListener(): void {
     emailInput.addEventListener("input", toggleEmailSubmitButton);
     // (1.2) listener for email form submission
     emailForm.addEventListener("submit", handleEmailFormSubmission);
-    applyClassForResponsiveNavbar(window.innerWidth);
+
 }
 
 // (1.1) callback - handles email submit button availability - toggles disabled state - validates email
@@ -54,15 +54,3 @@ function handleEmailFormSubmission(this: HTMLFormElement, event: SubmitEvent) {
         }
     })();
 }
-export function applyClassForResponsiveNavbar(viewportWidth: number): void {
-    // const navLinks = document.getElementById("nav-links") as HTMLDivElement;
-    // if (viewportWidth < 768) {
-    //     navLinks.classList.remove("desktop");
-    //     navLinks.classList.add("mobile");
-    // } else {
-    //     navLinks.classList.remove("mobile");
-    //     navLinks.classList.add("desktop");
-    // }
-}
-
-

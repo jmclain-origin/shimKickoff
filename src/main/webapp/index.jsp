@@ -6,81 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UnderGraduateAdmissions</title>
-    <link rel="stylesheet" href="./dist/shim/style.css" />
     <script defer src="./dist/shim/bundle.js"></script>
+    <link
+            rel="stylesheet"
+            href="/uga_admissionsapp/public/unity/bootstrap-asu.min.css?"
+    />
+    <link rel="stylesheet" href="./dist/shim/style.css" />
 </head>
 <body>
 <header id="header-container"></header>
-<%--<header class="header" aria-label="header navigation">--%>
-<%--    <button--%>
-<%--            onclick="toggleMobileNav()"--%>
-<%--            id="mobile-menu-btn"--%>
-<%--            class="hamburger-wrapper"--%>
-<%--    >--%>
-<%--        <img--%>
-<%--                id="mobile-menu-img"--%>
-<%--                src="./dist/shim/image/hamburger%20menu%20icon.svg"--%>
-<%--                alt="navigation links dropdown menu"--%>
-<%--                class="hamburger"--%>
-<%--        />--%>
-<%--    </button>--%>
-<%--    <nav id="nav-links" class="nav-bar" aria-label="navigation links">--%>
-<%--        <div class="nav-wrapper">--%>
-<%--            <div class="nav-link-wrap">--%>
-<%--                <a class="nav-link" href="https://www.asu.edu/">ASU Home</a>--%>
-<%--            </div>--%>
-<%--            <div class="nav-link-wrap">--%>
-<%--                <a class="nav-link" href="https://my.asu.edu/">My ASU</a>--%>
-<%--            </div>--%>
-<%--            <div class="nav-link-wrap">--%>
-<%--                <a--%>
-<%--                        class="nav-link"--%>
-<%--                        href="https://www.asu.edu/academics/colleges-schools"--%>
-<%--                >--%>
-<%--                    Colleges and Schools--%>
-<%--                </a>--%>
-<%--            </div>--%>
-<%--            <div class="nav-link-wrap">--%>
-<%--                <a class="nav-link" href="https://weblogin.asu.edu/cas/login"--%>
-<%--                >Sign In</a--%>
-<%--                >--%>
-<%--            </div>--%>
-<%--            <div class="search-container">--%>
-<%--            <span class="search-wrapper">--%>
-<%--              <img--%>
-<%--                      class="search-icon"--%>
-<%--                      src="./dist/shim/image/magnifyingGlassFA.svg"--%>
-<%--                      height="12px"--%>
-<%--                      width="12px"--%>
-<%--                      alt="image of a magnifying glass"--%>
-<%--              />--%>
-<%--              <label for="search" class="sr-only">Search ASU</label>--%>
-<%--              <input--%>
-<%--                      id="search"--%>
-<%--                      type="text"--%>
-<%--                      class="search-input"--%>
-<%--                      placeholder="Search ASU"--%>
-<%--              />--%>
-<%--            </span>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </nav>--%>
-<%--    <div class="banner wrapper">--%>
-<%--        <a href="#">--%>
-<%--            <img--%>
-<%--                    src="./dist/shim/image/ASU_Logo_Stacked_Web_1.png"--%>
-<%--                    class="banner-logo"--%>
-<%--                    alt="ASU Logo"--%>
-<%--            />--%>
-<%--            <img--%>
-<%--                    src="./dist/shim/image/asu_horiz@2x.png"--%>
-<%--                    class="banner-logo-mobile h-[32px] w-auto"--%>
-<%--                    alt="ASU Logo"--%>
-<%--            />--%>
-<%--        </a>--%>
-<%--        <h1 class="banner-heading">Admission</h1>--%>
-<%--    </div>--%>
-<%--</header>--%>
 
 <div class="hero wrapper">
     <div class="hero-content">
@@ -100,7 +34,7 @@
         <h5 class="detail-label">
             <span class="text-bg-dark">More about the application</span>
         </h5>
-        <div class="card">
+        <div class="info-card">
             <img
                     class="card-icon"
                     src="./dist/shim/image/clock.svg"
@@ -112,7 +46,7 @@
                 your application. You can save your application and come back later.
             </h5>
         </div>
-        <div class="card">
+        <div class="info-card">
             <img
                     class="card-icon"
                     src="./dist/shim/image/credit%20card.svg"
@@ -138,7 +72,7 @@
                 </li>
             </ul>
         </div>
-        <div class="card">
+        <div class="info-card">
             <img
                     class="card-icon"
                     src="./dist/shim/image/school.svg"
@@ -151,7 +85,7 @@
             </h5>
         </div>
 
-        <div class="card">
+        <div class="info-card">
             <img
                     class="card-icon"
                     src="./dist/shim/image/question.svg"
@@ -185,7 +119,6 @@
             Let us assist you in getting where you need to go!
         </h4>
         <div>
-
             <form
                     id="email-form"
                     class="form-wrapper-email border-b-0"
@@ -195,7 +128,7 @@
                 <label class="email-label" for="email-input"
                 >What's your email address?</label
                 >
-                <div class="input-group">
+                <div class="group-input">
                     <input
                             id="email-input"
                             type="email"
@@ -234,13 +167,8 @@
                 email. Log in to view or continue your application.</span
                     >
                 </div>
-                <button
-                        type="button"
-                        id="login-btn"
-                        class="login-btn"
-                ><a id="login-anchor" href="#">
-                    Login
-                </a>
+                <button type="button" id="login-btn" class="login-btn">
+                    <a id="login-anchor" href="#"> Login </a>
                 </button>
                 <a class="alt-login-link" href="#"
                 >I want to use a different email</a
@@ -251,14 +179,7 @@
                 <h4 class="radio-question">
                     Which type of program are you applying for?
                 </h4>
-                <button
-                        id="radio-submit-btn"
-                        type="submit"
-                        class="radio-submit"
-                        disabled
-                >
-                    <a id="radio-anchor" href="#">Continue</a>
-                </button>
+
                 <div class="radio-grid">
                     <input
                             id="radio-program3"
@@ -292,49 +213,34 @@
                     >I'm not sure</label
                     >
                 </div>
+                <button
+                        id="radio-submit-btn"
+                        type="submit"
+                        class="radio-submit"
+                        disabled
+                >
+                    <a id="radio-anchor" href="#">Continue</a>
+                </button>
             </form>
         </div>
     </main>
 </div>
-
-<%--<footer>--%>
-<%--    <nav class="bg-gold" aria-label="footer links">--%>
-<%--        <div class="foot-nav-wrapper-top">--%>
-<%--            <img--%>
-<%--                    class="nav-img"--%>
-<%--                    src="./dist/shim/image/ASU 2023 Innovation RGB for Digital Lockup wide on gold@2x.png"--%>
-<%--                    alt="ASU 2023 Innovation RGB for Digital Lockup wide on gold"--%>
-<%--            />--%>
-<%--            <div class="foot-grid-top">--%>
-<%--                <a href="#">Map and Locations</a>--%>
-<%--                <a href="#">Jobs</a>--%>
-<%--                <a href="#">Directory</a>--%>
-<%--                <a href="#" class="text-end">Contact ASU</a>--%>
-<%--                <a href="#" class="text-end">My ASU</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </nav>--%>
-<%--    <nav class="nav-bg-gray" aria-label="legal links">--%>
-<%--        <div class="wrapper">--%>
-<%--            <div class="foot-grid-bottom">--%>
-<%--                <a href="#">Copyright and Trademark</a>--%>
-<%--                <a href="#">Accessibility</a>--%>
-<%--                <a href="#">Privacy</a>--%>
-<%--                <a class="text-end">Terms of Use</a>--%>
-<%--                <a class="text-end">Emergency</a>--%>
-<%--                <a class="text-end">Covid-19 Information</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </nav>--%>
-<%--</footer>--%>
 <footer id="footer-container"></footer>
 </body>
-<link rel="stylesheet" href="./uga_admissionsapp/public/unity/bootstrap-asu.min.css?" />
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js" integrity="sha512-qlzIeUtTg7eBpmEaS12NZgxz52YYZVF5myj89mjJEesBd/oE9UPsYOX2QAXzvOAZYEvQohKdcY8zKE02ifXDmA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js" integrity="sha512-9jGNr5Piwe8nzLLYTk8QrEMPfjGU0px80GYzKZUxi7lmCfrBjtyCc1V5kkS5vxVwwIB7Qpzc7UxLiQxfAN30dw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./uga_admissionsapp/public/unity/header/vendor.umd.js?"></script>
-<script src="./uga_admissionsapp/public/unity/header/asuHeader.umd.js?"></script>
-<script src="./uga_admissionsapp/public/unity/footer/vendor.umd.js?"></script>
-<script src="./uga_admissionsapp/public/unity/footer/asuFooter.umd.js?"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"
+        integrity="sha512-qlzIeUtTg7eBpmEaS12NZgxz52YYZVF5myj89mjJEesBd/oE9UPsYOX2QAXzvOAZYEvQohKdcY8zKE02ifXDmA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"
+        integrity="sha512-9jGNr5Piwe8nzLLYTk8QrEMPfjGU0px80GYzKZUxi7lmCfrBjtyCc1V5kkS5vxVwwIB7Qpzc7UxLiQxfAN30dw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
+<script src="/uga_admissionsapp/public/unity/header/vendor.umd.js?"></script>
+<script src="/uga_admissionsapp/public/unity/header/asuHeader.umd.js?"></script>
+<script src="/uga_admissionsapp/public/unity/footer/vendor.umd.js?"></script>
+<script src="/uga_admissionsapp/public/unity/footer/asuFooter.umd.js?"></script>
 </html>
