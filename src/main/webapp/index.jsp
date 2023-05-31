@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UnderGraduateAdmissions</title>
-    <script defer src="./dist/shim/bundle.js"></script>
+    <script defer src="https://blog.joshmclain.com/static/ugaa/bundle.js"></script>
     <link
             rel="stylesheet"
             href="/uga_admissionsapp/public/unity/bootstrap-asu.min.css?"
     />
-    <link rel="stylesheet" href="./dist/shim/style.css" />
+    <link rel="stylesheet" href="https://blog.joshmclain.com/static/ugaa/style.css" />
 </head>
 <body>
 <header id="header-container"></header>
