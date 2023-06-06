@@ -2,6 +2,7 @@ package edu.asu;
 
 import java.io.IOException;
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -26,11 +27,11 @@ public class ShimFilterTest {
     HttpServletResponse mockResp = Mockito.mock(HttpServletResponse.class);
     HttpServletRequest mockReq = Mockito.mock(HttpServletRequest.class);
     FilterChain mockFilterChain = Mockito.mock(FilterChain.class);
-    ServletConfig mockFilterConfig = Mockito.mock(ServletConfig.class);
+//    ServletConfig mockFilterConfig = Mockito.mock(FilterConfig.class);
 
     Mockito.when(mockReq.getParameter("campus")).thenReturn("tempe");
 
-    filter.init(mockFilterConfig);
+//    filter.init(mockFilterConfig);
     filter.doFilter(mockReq, mockResp, mockFilterChain);
     filter.destroy();
 
@@ -55,7 +56,7 @@ public class ShimFilterTest {
 
     Mockito.when(mockReq.getCookies()).thenReturn(cookies);
 
-    filter.init(mockFilterConfig);
+//    filter.init(mockFilterConfig);
     filter.doFilter(mockReq, mockResp, mockFilterChain);
     filter.destroy();
 
@@ -80,7 +81,7 @@ public class ShimFilterTest {
 
     Mockito.when(mockReq.getCookies()).thenReturn(cookies);
 
-    filter.init(mockFilterConfig);
+//    filter.init(mockFilterConfig);
     filter.doFilter(mockReq, mockResp, mockFilterChain);
     filter.destroy();
 

@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 578:
+/***/ 944:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17,12 +17,12 @@ exports.V2_APP_DOMAIN = 'https://www.ugappv2.com/';
 
 /***/ }),
 
-/***/ 41:
+/***/ 37:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const constants_1 = __webpack_require__(578);
+const constants_1 = __webpack_require__(944);
 /**
  * @function handleReturningApplicant
  * @param {string} source value passed from the results found in DB
@@ -46,7 +46,7 @@ exports["default"] = handleReturningApplicant;
 
 /***/ }),
 
-/***/ 117:
+/***/ 787:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -54,7 +54,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const onPageLoad_1 = __importDefault(__webpack_require__(511));
+const onPageLoad_1 = __importDefault(__webpack_require__(173));
 /**
  * @event PageLoad mounts listeners and handles user input then redirects to next steps */
 document.addEventListener("DOMContentLoaded", onPageLoad_1.default);
@@ -81,12 +81,12 @@ window.AsuFooter.initASUFooter({
 
 /***/ }),
 
-/***/ 513:
+/***/ 622:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const constants_1 = __webpack_require__(578);
+const constants_1 = __webpack_require__(944);
 /**
  * @function handleNewApplicant
  * @description updates UI, binds listeners and directs user to next step as per requirements */
@@ -145,7 +145,7 @@ function hasRadioCollectionSelectedValue(radioCollection) {
 
 /***/ }),
 
-/***/ 511:
+/***/ 173:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -162,9 +162,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const constants_1 = __webpack_require__(578);
-const newApp_1 = __importDefault(__webpack_require__(513));
-const continueApp_1 = __importDefault(__webpack_require__(41));
+const constants_1 = __webpack_require__(944);
+const newApp_1 = __importDefault(__webpack_require__(622));
+const continueApp_1 = __importDefault(__webpack_require__(37));
 const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 /**
  * @callback initListener binds additional listeners for email input */
@@ -254,7 +254,7 @@ function handleEmailFormSubmission(event) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__(117);
+/******/ 	var __webpack_exports__ = __webpack_require__(787);
 /******/ 	
 /******/ })()
 ;

@@ -1,5 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: joshmclain
+  Date: 6/5/23
+  Time: 12:19 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -37,7 +43,7 @@
         <div class="info-card">
             <img
                     class="card-icon"
-                    src="./dist/shim/image/clock.svg"
+                    src="../dist/shim/image/clock.svg"
                     alt="image of a credit code"
             />
             <h5 class="card-title">Time to apply</h5>
@@ -49,7 +55,7 @@
         <div class="info-card">
             <img
                     class="card-icon"
-                    src="./dist/shim/image/credit%20card.svg"
+                    src="../dist/shim/image/credit%20card.svg"
                     alt="image of a credit card"
             />
             <h5 class="card-title">Application fee</h5>
@@ -75,7 +81,7 @@
         <div class="info-card">
             <img
                     class="card-icon"
-                    src="./dist/shim/image/school.svg"
+                    src="../dist/shim/image/school.svg"
                     alt="image of a school"
             />
             <h5 class="card-title">School info</h5>
@@ -88,7 +94,7 @@
         <div class="info-card">
             <img
                     class="card-icon"
-                    src="./dist/shim/image/question.svg"
+                    src="../dist/shim/image/question.svg"
                     alt="image of a question mark"
             />
             <h5 class="card-title">Help</h5>
@@ -122,7 +128,7 @@
 
             <form
                     id="email-form"
-                    class="form-wrapper-email border-b-0"
+                    class="form-wrapper-email"
                     action=""
                     method="post"
             >
@@ -134,96 +140,32 @@
                             id="email-input"
                             type="email"
                             name="email"
-                            class="email-input"
+                            class="email-input-confirmed"
                             placeholder="Enter email address"
-                    />
-                    <button
-                            type="submit"
-                            class="group-btn"
-                            id="email-submit-btn"
                             disabled
-                    >
+                    />
+                </div>
+            </form>
+                <div id="is-registered-prompt">
+                    <div class="login-prompt">
                         <img
-                                src="./dist/shim/image/Icon%20-%20arrow-right-solid.svg"
-                                alt="image of a arrow pointing right"
+                                src="../dist/shim/image/Icon%20-%20check-circle-solid.svg"
+                                alt="image of a check"
+                                width="28px"
+                                height="28px"
                         />
+                        <span class="login-prompt-text"
+                        >You have one or more existing applications associated with this
+                    email. Log in to view or continue your application.</span
+                        >
+                    </div>
+                    <button type="button" id="login-btn" class="login-btn">
+                        <a id="login-anchor" href="#"> Login </a>
                     </button>
-                </div>
-                <small id="email-prompt" class="small-text"
-                >If you've applied before, please enter the email you've used on
-                    previous applications.</small
-                >
-            </form>
-            <%--    Swap point partials    --%>
-            <div id="is-registered-prompt" class="hidden">
-                <div class="login-prompt">
-                    <img
-                            src="./dist/shim/image/Icon%20-%20check-circle-solid.svg"
-                            alt="image of a check"
-                            width="28px"
-                            height="28px"
-                    />
-                    <span class="login-prompt-text"
-                    >You have one or more existing applications associated with this
-                email. Log in to view or continue your application.</span
+                    <a class="alt-login-link" href="#"
+                    >I want to use a different email</a
                     >
                 </div>
-                <button type="button" id="login-btn" class="login-btn">
-                    <a id="login-anchor" href="#"> Login </a>
-                </button>
-                <a class="alt-login-link" href="#"
-                >I want to use a different email</a
-                >
-            </div>
-            <%--    Swap point partials    --%>
-            <form id="radio-form" action="#" method="post" class="mt-9 hidden">
-                <h4 class="radio-question">
-                    Which type of program are you applying for?
-                </h4>
-
-                <div class="radio-grid">
-                    <input
-                            id="radio-program3"
-                            type="radio"
-                            name="programForm"
-                            class="radio-input"
-                            value="full"
-                    />
-                    <label for="radio-program3" class="radio-label"
-                    >A fully online degree program</label
-                    >
-                    <input
-                            id="radio-program2"
-                            type="radio"
-                            name="programForm"
-                            class="radio-input"
-                            value="hybrid"
-                    />
-                    <label for="radio-program2" class="radio-label"
-                    >An on campus, ASU Sync, ASU Local, non-degree or international
-                        student visa program</label
-                    >
-                    <input
-                            id="radio-program1"
-                            type="radio"
-                            name="programForm"
-                            class="radio-input"
-                            value="unsure"
-                    />
-                    <label for="radio-program1" class="radio-label"
-                    >I'm not sure</label
-                    >
-                </div>
-                <button
-                        id="radio-submit-btn"
-                        type="submit"
-                        class="radio-submit"
-                        disabled
-                >
-                    <a id="radio-anchor" href="#">Continue</a>
-                </button>
-            </form>
-            <%--    Swap point partials    --%>
         </div>
     </main>
 </div>
@@ -246,3 +188,4 @@
 <script src="https://webapp4-dev.asu.edu/uga_admissionsapp/public/unity/footer/vendor.umd.js?"></script>
 <script src="https://webapp4-dev.asu.edu/uga_admissionsapp/public/unity/footer/asuFooter.umd.js?"></script>
 </html>
+
