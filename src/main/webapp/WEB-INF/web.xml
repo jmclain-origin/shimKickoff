@@ -9,16 +9,26 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
   <display-name>Archetype Created Web Application</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+<!--  <welcome-file-list>-->
+<!--    <welcome-file>index.jsp</welcome-file>-->
+<!--  </welcome-file-list>-->
+
+  <filter>
+    <filter-name>ShimFilter</filter-name>
+    <filter-class>edu.asu.ShimFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ShimFilter</filter-name>
+    <servlet-name>ShimServlet</servlet-name>
+  </filter-mapping>
 
   <servlet>
-    <servlet-name>HomePage</servlet-name>
-    <jsp-file>/views/index.jsp</jsp-file>
+    <servlet-name>ShimServlet</servlet-name>
+    <servlet-class>edu.asu.ShimServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>HomePage</servlet-name>
-    <url-pattern>/home</url-pattern>
+    <servlet-name>ShimServlet</servlet-name>
+    <url-pattern>/shim</url-pattern>
   </servlet-mapping>
+
 </web-app>

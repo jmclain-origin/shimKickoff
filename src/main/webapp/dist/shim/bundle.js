@@ -7,12 +7,25 @@
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.V2_APP_DOMAIN = exports.V1_APP_DOMAIN = exports.API_DOMAIN = void 0;
+exports.getCookies = exports.V2_APP_DOMAIN = exports.V1_APP_DOMAIN = exports.API_DOMAIN = void 0;
 /**
  * @note change here will affect all the logical uses in related files */
 exports.API_DOMAIN = "https://api-dev.adms-aaa.apps.asu.edu/api/ug";
 exports.V1_APP_DOMAIN = 'https://www.ugappv1.com/';
 exports.V2_APP_DOMAIN = 'https://www.ugappv2.com/';
+function getCookies(name) {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        if (name === name.toLowerCase()) {
+            return decodeURIComponent(cookie.substr(eqPos + 1));
+        }
+    }
+    return null;
+}
+exports.getCookies = getCookies;
 
 
 /***/ }),
@@ -175,6 +188,11 @@ function initListener() {
     emailInput.addEventListener("input", toggleEmailSubmitButton);
     // (1.2) listener for email form submission
     emailForm.addEventListener("submit", handleEmailFormSubmission);
+    // check cookies
+    if ((0, constants_1.getCookies)("shim-which-app")) {
+        console.log("shim-which-app cookie is set");
+        // bypass logic to determine which app to continue for returning user
+    }
 }
 exports["default"] = initListener;
 // (1.1) callback - handles email submit button availability - toggles disabled state - validates email

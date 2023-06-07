@@ -1,4 +1,4 @@
-import {API_DOMAIN} from "./constants";
+import {API_DOMAIN, getCookies} from "./constants";
 import handleNewApplicant from './newApp';
 import handleReturningApplicant from "./continueApp";
 const EMAIL_REGEX: RegExp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -12,6 +12,12 @@ export default function initListener(): void {
     // (1.2) listener for email form submission
     emailForm.addEventListener("submit", handleEmailFormSubmission);
 
+
+    // check cookies
+    if (getCookies("shim-which-app")) {
+        console.log("shim-which-app cookie is set");
+        // bypass logic to determine which app to continue for returning user
+    }
 }
 
 // (1.1) callback - handles email submit button availability - toggles disabled state - validates email

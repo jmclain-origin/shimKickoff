@@ -30,7 +30,7 @@ public class ShimFilterTest {
 
     Mockito.when(mockReq.getParameter("campus")).thenReturn("tempe");
 
-    filter.init(mockFilterConfig);
+//    filter.init(mockFilterConfig);
     filter.doFilter(mockReq, mockResp, mockFilterChain);
     filter.destroy();
 
@@ -55,7 +55,7 @@ public class ShimFilterTest {
 
     Mockito.when(mockReq.getCookies()).thenReturn(cookies);
 
-    filter.init(mockFilterConfig);
+//    filter.init(mockFilterConfig);
     filter.doFilter(mockReq, mockResp, mockFilterChain);
     filter.destroy();
 
@@ -80,7 +80,7 @@ public class ShimFilterTest {
 
     Mockito.when(mockReq.getCookies()).thenReturn(cookies);
 
-    filter.init(mockFilterConfig);
+//    filter.init(mockFilterConfig);
     filter.doFilter(mockReq, mockResp, mockFilterChain);
     filter.destroy();
 
