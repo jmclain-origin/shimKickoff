@@ -7,12 +7,12 @@
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getCookies = exports.V2_APP_DOMAIN = exports.V1_APP_DOMAIN = exports.API_DOMAIN = void 0;
+exports.getCookies = exports.NEW_APP_DOMAIN = exports.LEGACY_APP_DOMAIN = exports.API_DOMAIN = void 0;
 /**
  * @note change here will affect all the logical uses in related files */
 exports.API_DOMAIN = "https://api-dev.adms-aaa.apps.asu.edu/api/ug";
-exports.V1_APP_DOMAIN = 'https://www.ugappv1.com/';
-exports.V2_APP_DOMAIN = 'https://www.ugappv2.com/';
+exports.LEGACY_APP_DOMAIN = 'https://webapp4-dev.asu.edu/uga_admissionsapp/';
+exports.NEW_APP_DOMAIN = 'https://www.joshmclain.com/';
 function getCookies(name) {
     const cookies = document.cookie.split(";");
     for (let i = 0; i < cookies.length; i++) {
@@ -36,6 +36,7 @@ exports.getCookies = getCookies;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const constants_1 = __webpack_require__(578);
+const utils_1 = __webpack_require__(353);
 /**
  * @function handleReturningApplicant
  * @param {string} source value passed from the results found in DB
@@ -51,7 +52,9 @@ function handleReturningApplicant(source) {
         true;
     document.getElementById("email-form").style.paddingBottom = "0";
     if (source) {
-        document.getElementById('login-anchor').href = source === 'ugappv1' ? constants_1.V1_APP_DOMAIN : constants_1.V2_APP_DOMAIN;
+        const cookieValWhichApp = source === 'ugappv1' ? 'LEGACY' : 'NEW';
+        (0, utils_1.setCookie)("shim-which-app", cookieValWhichApp, 2);
+        document.getElementById('login-anchor').href = source === 'ugappv1' ? constants_1.LEGACY_APP_DOMAIN : constants_1.NEW_APP_DOMAIN;
     }
 }
 exports["default"] = handleReturningApplicant;
@@ -100,6 +103,7 @@ window.AsuFooter.initASUFooter({
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const constants_1 = __webpack_require__(578);
+const utils_1 = __webpack_require__(353);
 /**
  * @function handleNewApplicant
  * @description updates UI, binds listeners and directs user to next step as per requirements */
@@ -129,6 +133,7 @@ function toggleContinueButton() {
 }
 let SELECTED;
 let APP_PATH;
+let WHICH_APP;
 // Listener Callback (2.2)
 function handleProgramFormSubmission(event) {
     event.preventDefault();
@@ -136,12 +141,23 @@ function handleProgramFormSubmission(event) {
     hasRadioCollectionSelectedValue(ctlGroup.programForm);
     if (SELECTED === 'full') {
         // 10% chance of being directed to the new app
-        APP_PATH = Math.random() <= 0.1 ? constants_1.V2_APP_DOMAIN : constants_1.V1_APP_DOMAIN;
+        (() => {
+            if (Math.random() < 0.1) {
+                APP_PATH = constants_1.NEW_APP_DOMAIN;
+                WHICH_APP = "NEW";
+            }
+            else {
+                APP_PATH = constants_1.LEGACY_APP_DOMAIN;
+                WHICH_APP = "LEGACY";
+            }
+        })();
+        APP_PATH = Math.random() <= 0.1 ? constants_1.NEW_APP_DOMAIN : constants_1.LEGACY_APP_DOMAIN;
     }
     else {
-        APP_PATH = constants_1.V1_APP_DOMAIN;
+        WHICH_APP = "LEGACY";
+        APP_PATH = constants_1.LEGACY_APP_DOMAIN;
     }
-    // TODO: remove window alert
+    (0, utils_1.setCookie)('shim-which-app', WHICH_APP, 1);
     document.getElementById('radio-anchor').href = APP_PATH;
 }
 function hasRadioCollectionSelectedValue(radioCollection) {
@@ -178,21 +194,27 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const constants_1 = __webpack_require__(578);
 const newApp_1 = __importDefault(__webpack_require__(513));
 const continueApp_1 = __importDefault(__webpack_require__(41));
+const utils_1 = __webpack_require__(353);
 const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 /**
  * @callback initListener binds additional listeners for email input */
 function initListener() {
     const emailForm = document.getElementById("email-form");
     const emailInput = document.getElementById("email-input");
+    const shimWhichApp = (0, utils_1.getCookie)("shim-which-app");
+    // bypass if already initialized shim routing
+    if (shimWhichApp) {
+        if (shimWhichApp === "NEW") {
+            window.location.href = constants_1.NEW_APP_DOMAIN;
+        }
+        if (shimWhichApp === "LEGACY") {
+            window.location.href = constants_1.LEGACY_APP_DOMAIN;
+        }
+    }
     // (1.1) listener for valid email
     emailInput.addEventListener("input", toggleEmailSubmitButton);
     // (1.2) listener for email form submission
     emailForm.addEventListener("submit", handleEmailFormSubmission);
-    // check cookies
-    if ((0, constants_1.getCookies)("shim-which-app")) {
-        console.log("shim-which-app cookie is set");
-        // bypass logic to determine which app to continue for returning user
-    }
 }
 exports["default"] = initListener;
 // (1.1) callback - handles email submit button availability - toggles disabled state - validates email
@@ -220,6 +242,7 @@ function handleEmailFormSubmission(event) {
             localStorage.setItem("email", email);
             if (response.ok) {
                 const resData = yield response.json();
+                console.log("response data", resData);
                 const source = (_a = resData === null || resData === void 0 ? void 0 : resData.data) === null || _a === void 0 ? void 0 : _a.source;
                 if (source === 'dnf') { // new applicant questioner UI
                     this.classList.remove("border-b-0");
@@ -237,6 +260,39 @@ function handleEmailFormSubmission(event) {
         }
     }))();
 }
+
+
+/***/ }),
+
+/***/ 353:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getCookie = exports.setCookie = void 0;
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days > 0) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+exports.setCookie = setCookie;
+function getCookie(name) {
+    let cookieArr = document.cookie.split("; ");
+    for (let i = 0; i < cookieArr.length; i++) {
+        let cookiePair = cookieArr[i].split("=");
+        if (name == cookiePair[0]) {
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+    return null;
+}
+exports.getCookie = getCookie;
+// You can then call the function like this:
+// setCookie('username', 'John Doe', 10);  // Set a cookie that expires in 10 days
 
 
 /***/ })

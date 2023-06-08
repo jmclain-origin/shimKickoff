@@ -1,23 +1,29 @@
-import {API_DOMAIN, getCookies} from "./constants";
+import {API_DOMAIN, LEGACY_APP_DOMAIN, NEW_APP_DOMAIN} from "./constants";
 import handleNewApplicant from './newApp';
 import handleReturningApplicant from "./continueApp";
+import { getCookie, setCookie } from "./utils";
+
 const EMAIL_REGEX: RegExp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 /**
  * @callback initListener binds additional listeners for email input */
 export default function initListener(): void {
     const emailForm = document.getElementById("email-form") as HTMLFormElement;
     const emailInput = document.getElementById("email-input") as HTMLInputElement;
-    // (1.1) listener for valid email
-    emailInput.addEventListener("input", toggleEmailSubmitButton);
-    // (1.2) listener for email form submission
-    emailForm.addEventListener("submit", handleEmailFormSubmission);
-
-
-    // check cookies
-    if (getCookies("shim-which-app")) {
-        console.log("shim-which-app cookie is set");
-        // bypass logic to determine which app to continue for returning user
+    const shimWhichApp = getCookie("shim-which-app");
+    // bypass if already initialized shim routing
+    if (shimWhichApp) {
+        if (shimWhichApp === "NEW") {
+            window.location.href = NEW_APP_DOMAIN;
+        }
+        if (shimWhichApp === "LEGACY") {
+            window.location.href = LEGACY_APP_DOMAIN;
+        }
     }
+        // (1.1) listener for valid email
+        emailInput.addEventListener("input", toggleEmailSubmitButton);
+        // (1.2) listener for email form submission
+        emailForm.addEventListener("submit", handleEmailFormSubmission);
+
 }
 
 // (1.1) callback - handles email submit button availability - toggles disabled state - validates email
@@ -45,6 +51,7 @@ function handleEmailFormSubmission(this: HTMLFormElement, event: SubmitEvent) {
 
             if (response.ok) {
                 const resData = await response.json();
+                console.log("response data", resData);
                 const source: 'dnf' | 'ugappv1' | 'ugappv2' = resData?.data?.source;
                 if (source === 'dnf') { // new applicant questioner UI
                     this.classList.remove("border-b-0");

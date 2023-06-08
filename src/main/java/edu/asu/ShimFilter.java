@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ShimFilter implements Filter {
 
-  final static String LEGACY_APP = "https://www.legacy.com";
-  final static String NEW_APP = "https://www.new.com";
-//  final static String SHIM_UI = "https://www.legacy.com/shimui";
+  final static String LEGACY_APP = "https://webapp4-dev.asu.edu/uga_admissionsapp/";
+  final static String NEW_APP = "https://www.joshmclain.com";
 
   final static String CORP = "CORP";
   final static String SCAP = "SCAP";
@@ -49,12 +48,14 @@ public class ShimFilter implements Filter {
         String whichApp = lookToTheCookie.getValue();
         if (whichApp.equals("NEW")) {
           System.out.println("Sending to: " + NEW_APP);
-          response.sendRedirect(NEW_APP);
+          response.sendRedirect(NEW_APP + "?partner=" + partnerFromQueryString);
           return;
         } else if (whichApp.equals("LEGACY")) {
           System.out.println("Sending to: " + LEGACY_APP);
-          response.sendRedirect(LEGACY_APP);
+          response.sendRedirect(LEGACY_APP + "?partner=" + partnerFromQueryString);
           return;
+        } else {
+          System.out.println("No cookies params, sending to SHIM UI");
         }
       }
     }

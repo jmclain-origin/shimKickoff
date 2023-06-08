@@ -1,8 +1,8 @@
 /**
  * @note change here will affect all the logical uses in related files */
 export const API_DOMAIN = "https://api-dev.adms-aaa.apps.asu.edu/api/ug";
-export const V1_APP_DOMAIN = 'https://www.ugappv1.com/';
-export const V2_APP_DOMAIN = 'https://www.ugappv2.com/';
+export const LEGACY_APP_DOMAIN = 'https://webapp4-dev.asu.edu/uga_admissionsapp/';
+export const NEW_APP_DOMAIN = 'https://www.joshmclain.com/';
 
 export function getCookies(name: String) {
     const cookies = document.cookie.split(";");

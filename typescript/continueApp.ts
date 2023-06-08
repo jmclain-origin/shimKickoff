@@ -1,4 +1,6 @@
-import { V1_APP_DOMAIN, V2_APP_DOMAIN } from "./constants";
+import {LEGACY_APP_DOMAIN, NEW_APP_DOMAIN } from "./constants";
+import { setCookie } from "./utils";
+
 /**
  * @function handleReturningApplicant
  * @param {string} source value passed from the results found in DB
@@ -23,6 +25,8 @@ export default function handleReturningApplicant(source?: 'ugappv1'| 'ugappv2') 
     ).style.paddingBottom = "0";
 
     if (source) {
-        (document.getElementById('login-anchor') as HTMLAnchorElement).href = source === 'ugappv1' ? V1_APP_DOMAIN : V2_APP_DOMAIN;
+        const cookieValWhichApp: string = source === 'ugappv1'? 'LEGACY' : 'NEW';
+        setCookie("shim-which-app", cookieValWhichApp, 2);
+        (document.getElementById('login-anchor') as HTMLAnchorElement).href = source === 'ugappv1' ? LEGACY_APP_DOMAIN : NEW_APP_DOMAIN;
     }
 }
