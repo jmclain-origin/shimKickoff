@@ -27,10 +27,8 @@
             <h3>shim ui entry</h3>
             <p><a href="shim">/shim</a></p>
             <h3>online campus?</h3>
-            <p><a href="shim?campus=online">/shim?campus=online</a></p>
-            <h3>partner custom ui needs to continue legacy app?</h3>
-            <p><a href="shim?partner=CORP">/shim?partner=CORP</a></p>
-            <p><a href="shim?partner=SCAP">/shim?partner=SCAP</a></p>
+            <p><a href="shim?campus=ONLINE&partner=CORP">/shim?campus=online&partner=CORP</a></p>
+            <p><a href="shim?campus=ONLINE&partner=SCAP">/shim?campus=online&partner=SCAP</a></p>
         </div>
     </div>
 </body>

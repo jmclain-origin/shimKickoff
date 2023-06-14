@@ -1,12 +1,5 @@
 # SHIM kickoff
 
-Feature nearly completed, missing urls for redirects, may want to apply conditional logic for constants values based on deployment env. 
-
-Constants in [file: `/typescript/constants.ts`](./typescript/constants.ts).
-
-Will need to remove `window.alert` left in place of links out of page. Left "TODO" comments at locations.
-
-Footer navigation links were not provided they will need to be added *(top navigation links working)*
 
 See [setup and usage](#usage--setup) for build instructions.
 

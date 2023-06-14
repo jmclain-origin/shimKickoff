@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 public class ShimFilter implements Filter {
 
   final static String LEGACY_APP = "https://webapp4-dev.asu.edu/uga_admissionsapp/";
-  final static String NEW_APP = "https://www.joshmclain.com";
+  final static String NEW_APP = "https://www.new-app-domain.com";
 
   final static String CORP = "CORP";
   final static String SCAP = "SCAP";
+  final static String ONLINE = "ONLINE";
 
   public void init(FilterConfig filterConfig) throws ServletException {
     // Do nothing
@@ -27,20 +28,28 @@ public class ShimFilter implements Filter {
     HttpServletRequest request = (HttpServletRequest) req;
     HttpServletResponse response = (HttpServletResponse) res;
 
-//    String campusFromQueryString = request.getParameter("campus");
+    String campusFromQueryString = request.getParameter("campus");
     String partnerFromQueryString = request.getParameter("partner");
+    String requestQueryString = request.getQueryString();
 
     // BYPASS Shim UI
-    if (!Objects.isNull(partnerFromQueryString)) {
-      // send to customer partner ui
-      if (partnerFromQueryString.equalsIgnoreCase(SCAP)
-              || partnerFromQueryString.equalsIgnoreCase(CORP)) {
-        System.out.println("Sending to: Legacy domain with query" + "?partner=" + partnerFromQueryString);
-        response.sendRedirect(LEGACY_APP);
-        return;
+    if (!Objects.isNull(campusFromQueryString) && campusFromQueryString.equalsIgnoreCase(ONLINE)) {
+      System.out.println("query string: " + requestQueryString);
+      // check partner from query string
+      if (!Objects.isNull(partnerFromQueryString)) {
+        if (partnerFromQueryString.equalsIgnoreCase(SCAP)
+                || partnerFromQueryString.equalsIgnoreCase(CORP)) {
+          System.out.println("Sending to: Legacy domain with query " + "?" + requestQueryString);
+          response.sendRedirect(LEGACY_APP + "?" + requestQueryString);
+          return;
+        }
       }
-      System.out.println("No bypass");
+      System.out.println("Sending to: Legacy domain with query " + requestQueryString);
+      response.sendRedirect(LEGACY_APP + "?" + requestQueryString);
+      return;
     }
+
+
 
     // Checking Cookies -
     for (Cookie lookToTheCookie : request.getCookies()) {
@@ -48,11 +57,11 @@ public class ShimFilter implements Filter {
         String whichApp = lookToTheCookie.getValue();
         if (whichApp.equals("NEW")) {
           System.out.println("Sending to: " + NEW_APP);
-          response.sendRedirect(NEW_APP + "?partner=" + partnerFromQueryString);
+          response.sendRedirect(NEW_APP + "?" + requestQueryString);
           return;
         } else if (whichApp.equals("LEGACY")) {
           System.out.println("Sending to: " + LEGACY_APP);
-          response.sendRedirect(LEGACY_APP + "?partner=" + partnerFromQueryString);
+          response.sendRedirect(LEGACY_APP + "?" + requestQueryString);
           return;
         } else {
           System.out.println("No cookies params, sending to SHIM UI");
