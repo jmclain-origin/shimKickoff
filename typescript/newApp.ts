@@ -1,4 +1,5 @@
-import { V1_APP_DOMAIN, V2_APP_DOMAIN } from './constants'
+import { LEGACY_APP_DOMAIN, NEW_APP_DOMAIN} from './constants'
+import {setCookie} from "./utils";
 interface ProgramFormElements extends HTMLFormControlsCollection {
     programForm: RadioNodeList;
 }
@@ -37,22 +38,33 @@ function toggleContinueButton(this: HTMLFormElement) {
 }
 let SELECTED: string;
 let APP_PATH: string;
+let WHICH_APP: string;
 // Listener Callback (2.2)
 function handleProgramFormSubmission(
     this: HTMLFormElement,
     event: SubmitEvent
 ): void {
     event.preventDefault();
-    const ctlGroup = this.elements as ProgramFormElements;
 
+    const ctlGroup = this.elements as ProgramFormElements;
     hasRadioCollectionSelectedValue(ctlGroup.programForm)
     if (SELECTED === 'full') {
         // 10% chance of being directed to the new app
-        APP_PATH = Math.random() <= 0.1 ? V2_APP_DOMAIN : V1_APP_DOMAIN;
+        (() => {
+            if (Math.random() < 0.1) {
+                APP_PATH = NEW_APP_DOMAIN;
+                WHICH_APP = "NEW";
+            } else {
+                APP_PATH = LEGACY_APP_DOMAIN;
+                WHICH_APP = "LEGACY";
+            }
+        })();
+        APP_PATH =  Math.random() <= 0.1 ? NEW_APP_DOMAIN : LEGACY_APP_DOMAIN;
     } else {
-        APP_PATH = V1_APP_DOMAIN;
+        WHICH_APP = "LEGACY";
+        APP_PATH = LEGACY_APP_DOMAIN;
     }
-    // TODO: remove window alert
+    setCookie('shim-which-app', WHICH_APP , 1);
     (document.getElementById('radio-anchor') as HTMLAnchorElement).href = APP_PATH;
 }
 function hasRadioCollectionSelectedValue(
