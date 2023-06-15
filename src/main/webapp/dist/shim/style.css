@@ -223,7 +223,7 @@ body {
     --tw-shadow-colored: 0 0 #0000;
 }
 
-.wrapper {
+.gutter-wrapper {
     margin-left: auto;
     margin-right: auto;
     max-width: 1280px;

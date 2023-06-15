@@ -9,14 +9,14 @@
     <script defer src="./dist/shim/bundle.js"></script>
     <link
             rel="stylesheet"
-            href="/uga_admissionsapp/public/unity/bootstrap-asu.min.css?"
+            href="https://webapp4-dev.asu.edu/uga_admissionsapp/public/unity/bootstrap-asu.min.css?18a4bd53-3392-4a64-9120-c55916f0c35d"
     />
     <link rel="stylesheet" href="dist/shim/style.css" />
 </head>
 <body>
 <header id="header-container"></header>
 
-<div class="hero wrapper">
+<div class="hero gutter-wrapper">
     <div class="hero-content">
         <h2 class="hero-heading">
             <span class="hero-text-bg">Apply to ASU</span>
@@ -29,7 +29,7 @@
     </div>
 </div>
 
-<div class="body-wrapper wrapper">
+<div class="body-wrapper gutter-wrapper">
     <div class="card-wrapper">
         <h5 class="detail-label">
             <span class="text-bg-dark">More about the application</span>
@@ -239,8 +239,8 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
 ></script>
-<script src="/uga_admissionsapp/public/unity/header/vendor.umd.js?"></script>
-<script src="/uga_admissionsapp/public/unity/header/asuHeader.umd.js?"></script>
-<script src="/uga_admissionsapp/public/unity/footer/vendor.umd.js?"></script>
-<script src="/uga_admissionsapp/public/unity/footer/asuFooter.umd.js?"></script>
+<script src="https://webapp4-dev.asu.edu/uga_admissionsapp/public/unity/header/vendor.umd.js?18a4bd53-3392-4a64-9120-c55916f0c35d"></script>
+<script src="https://webapp4-dev.asu.edu/uga_admissionsapp/public/unity/header/asuHeader.umd.js?18a4bd53-3392-4a64-9120-c55916f0c35d"></script>
+<script src="https://webapp4-dev.asu.edu/uga_admissionsapp/public/unity/footer/vendor.umd.js?18a4bd53-3392-4a64-9120-c55916f0c35d"></script>
+<script src="https://webapp4-dev.asu.edu/uga_admissionsapp/public/unity/footer/asuFooter.umd.js?18a4bd53-3392-4a64-9120-c55916f0c35d"></script>
 </html>
