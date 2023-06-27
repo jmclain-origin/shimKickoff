@@ -28,5 +28,9 @@ export default function handleReturningApplicant(source?: 'ugappv1'| 'ugappv2') 
         const cookieValWhichApp: string = source === 'ugappv1'? 'LEGACY' : 'NEW';
         setCookie("shim-which-app", cookieValWhichApp, 2);
         (document.getElementById('login-anchor') as HTMLAnchorElement).href = source === 'ugappv1' ? LEGACY_APP_DOMAIN : NEW_APP_DOMAIN;
+        console.log("🚀 ~ file: continueApp.ts:31 ~ handleReturningApplicant ~ NEW_APP_DOMAIN:", NEW_APP_DOMAIN)
+        console.log("🚀 ~ file: continueApp.ts:31 ~ handleReturningApplicant ~ LEGACY_APP_DOMAIN:", LEGACY_APP_DOMAIN)
+        console.log("🚀 ~ file: continueApp.ts:31 ~ handleReturningApplicant ~ source:", source)
+        console.log("🚀 ~ file: continueApp.ts:31 ~ handleReturningApplicant ~ source === 'ugappv1' ? LEGACY_APP_DOMAIN : NEW_APP_DOMAIN;:", source === 'ugappv1' ? LEGACY_APP_DOMAIN : NEW_APP_DOMAIN)
     }
 }

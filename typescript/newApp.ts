@@ -1,4 +1,4 @@
-import { LEGACY_APP_DOMAIN, NEW_APP_DOMAIN} from './constants'
+import { LEGACY_APP_DOMAIN, NEW_APP_DOMAIN, SHIM_PERCENT} from './constants'
 import {setCookie} from "./utils";
 interface ProgramFormElements extends HTMLFormControlsCollection {
     programForm: RadioNodeList;
@@ -30,15 +30,18 @@ export default function handleNewApplicant() {
     // (2.2) listen for form submission
     radioForm.addEventListener("submit", handleProgramFormSubmission);
 }
+
 // Listener Callback (2.1)
 function toggleContinueButton(this: HTMLFormElement) {
     const inputElements = this.elements as ProgramFormElements;
     (document.getElementById("radio-submit-btn") as HTMLButtonElement).disabled =
         !hasRadioCollectionSelectedValue(inputElements.programForm);
 }
+
 let SELECTED: string;
-let APP_PATH: string;
 let WHICH_APP: string;
+let NEXT_APP_URL: string;
+
 // Listener Callback (2.2)
 function handleProgramFormSubmission(
     this: HTMLFormElement,
@@ -47,35 +50,61 @@ function handleProgramFormSubmission(
     event.preventDefault();
 
     const ctlGroup = this.elements as ProgramFormElements;
-    hasRadioCollectionSelectedValue(ctlGroup.programForm)
-    if (SELECTED === 'full') {
-        // 10% chance of being directed to the new app
-        (() => {
-            if (Math.random() < 0.1) {
-                APP_PATH = NEW_APP_DOMAIN;
-                WHICH_APP = "NEW";
-            } else {
-                APP_PATH = LEGACY_APP_DOMAIN;
-                WHICH_APP = "LEGACY";
-            }
-        })();
-        APP_PATH =  Math.random() <= 0.1 ? NEW_APP_DOMAIN : LEGACY_APP_DOMAIN;
-    } else {
-        WHICH_APP = "LEGACY";
-        APP_PATH = LEGACY_APP_DOMAIN;
+    const isReady: boolean = hasRadioCollectionSelectedValue(ctlGroup.programForm)
+
+    if (isReady) {
+        console.log("🚀 ~ file: newApp.ts:58 ~ NEXT_APP_URL:", NEXT_APP_URL)
+        console.log("🚀 ~ file: newApp.ts:63 ~ WHICH_APP:", WHICH_APP)
+        setTimeout(() => {
+            setCookie('shim-which-app', WHICH_APP , 7);
+            window.location.href = NEXT_APP_URL;
+        }, 3000)
     }
-    setCookie('shim-which-app', WHICH_APP , 1);
-    (document.getElementById('radio-anchor') as HTMLAnchorElement).href = APP_PATH;
 }
+// Listener Callback (2.1)
 function hasRadioCollectionSelectedValue(
     radioCollection: RadioNodeList
 ): boolean {
     for (let node of radioCollection) {
         const input = node as HTMLInputElement;
         if (input.checked) {
-            SELECTED = input.value
+            SELECTED = input.value;
+            if (SELECTED === 'online') { 
+            NEXT_APP_URL = getNextAppUrl('online');
+            console.log("🚀 ~ file: newApp.ts:72 ~ getNextAppUrl('online'):", getNextAppUrl('online'))
+            console.log("🚀 ~ file: newApp.ts:75 ~ hasRadioOn NEXT_APP_URL:", NEXT_APP_URL)
+            WHICH_APP = 'NEW'
+            return true;
+        } else { 
+            NEXT_APP_URL = getNextAppUrl('legacy');
+            console.log("🚀 ~ file: newApp.ts:78 ~ getNextAppUrl('legacy');:", getNextAppUrl('legacy'))
+            console.log("🚀 ~ file: newApp.ts:80 ~ hasRadioOn NEXT_APP_URL:", NEXT_APP_URL)
+            WHICH_APP = 'LEGACY'
+        }   
             return true;
         }
     }
     return false;
+}
+function getNextAppUrl(selection: 'online' | 'legacy'): string {
+    let RESULT = '';
+    if (selection === 'online') {
+        const X =  Math.random();
+        console.log("🚀 ~ file: newApp.ts:93 ~ getNextAppUrl ~ X:", X)
+        const thresholdRate = (SHIM_PERCENT / 100); // expects 0.1
+        if (X < thresholdRate) {
+            RESULT = NEW_APP_DOMAIN + '?NEW&';
+            console.log("🚀 ~ file: newApp.ts:95 ~ getNextAppUrl ~ RESULT:", RESULT)
+            setCookie('shim-which-app', 'NEW', 1);
+        } else {
+            RESULT = LEGACY_APP_DOMAIN; + '?LEGACY&';
+            console.log("🚀 ~ file: newApp.ts:100 ~ getNextAppUrl ~ RESULT:", RESULT)
+            setCookie('shim-which-app', 'LEGACY', 1);
+        }
+    } else {
+        RESULT = LEGACY_APP_DOMAIN;
+        console.log("🚀 ~ file: newApp.ts:105 ~ getNextAppUrl ~ LEGACY_APP_DOMAIN:", LEGACY_APP_DOMAIN)
+        setCookie('shim-which-app', 'LEGACY', 1);
+    }
+    return RESULT;
 }

@@ -1,8 +1,10 @@
-/**
- * @note change here will affect all the logical uses in related files */
-export const API_DOMAIN = "https://api-dev.adms-aaa.apps.asu.edu/api/ug";
-export const LEGACY_APP_DOMAIN = 'https://webapp4-dev.asu.edu/uga_admissionsapp/';
-export const NEW_APP_DOMAIN = 'https://www.joshmclain.com/';
+export const API_DOMAIN = (document.getElementById("api-url") as HTMLInputElement).value + 'api/ug/';
+export const LEGACY_APP_DOMAIN = (document.getElementById('legacy-app-url') as HTMLInputElement).value + 'uga_admissionsapp/' ;
+console.log("🚀 ~ file: constants.ts:9 ~ LEGACY_APP_DOMAIN:", LEGACY_APP_DOMAIN)
+export const NEW_APP_DOMAIN = (document.getElementById('new-app-url') as HTMLInputElement).value + "";
+console.log("🚀 ~ file: constants.ts:11 ~ NEW_APP_DOMAIN:", NEW_APP_DOMAIN)
+export const SHIM_PERCENT = parseFloat((document.getElementById('shim-percent') as HTMLInputElement).value);
+console.log("🚀 ~ file: constants.ts:13 ~ SHIM_PERCENT:", SHIM_PERCENT);
 
 export function getCookies(name: String) {
     const cookies = document.cookie.split(";");
